@@ -327,6 +327,7 @@ export const SEO_DEFAULTS = {
     'Investigación',
     'Datos económicos',
   ],
+  author: 'UNED Costa Rica - OMiPYME',
   ogImage: '/images/og-image.jpg',
   twitterHandle: '@omipyme_uned',
 };
