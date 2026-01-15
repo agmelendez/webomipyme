@@ -1,0 +1,211 @@
+version: '3.8'
+
+# OMiPYME - Docker Compose Configuration
+# Orquestación de todos los servicios del proyecto
+
+services:
+  # ==================================================
+  # FRONTEND - Next.js
+  # ==================================================
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: omipyme-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://api:8000
+      - NEXT_PUBLIC_WP_URL=http://wordpress:8080
+      - NEXT_PUBLIC_SHINY_URL=http://dashboards:3838
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - api
+      - wordpress
+    networks:
+      - omipyme-network
+    restart: unless-stopped
+
+  # ==================================================
+  # API - Python FastAPI
+  # ==================================================
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: omipyme-api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://omipyme:omipyme123@postgres:5432/omipyme
+      - WORDPRESS_API_URL=http://wordpress:8080/wp-json
+      - REDIS_URL=redis://redis:6379
+      - ENVIRONMENT=development
+    volumes:
+      - ./api:/app
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - omipyme-network
+    restart: unless-stopped
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # ==================================================
+  # CMS - WordPress (Headless)
+  # ==================================================
+  wordpress:
+    image: wordpress:latest
+    container_name: omipyme-wordpress
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress123
+      WORDPRESS_DB_NAME: omipyme_wp
+      WORDPRESS_DEBUG: 1
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./cms/themes/omipyme-theme:/var/www/html/wp-content/themes/omipyme-theme
+      - ./cms/plugins/omipyme-custom:/var/www/html/wp-content/plugins/omipyme-custom
+    depends_on:
+      - mysql
+    networks:
+      - omipyme-network
+    restart: unless-stopped
+
+  # ==================================================
+  # MYSQL - Base de datos para WordPress
+  # ==================================================
+  mysql:
+    image: mysql:8.0
+    container_name: omipyme-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: omipyme_wp
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress123
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - omipyme-network
+    restart: unless-stopped
+
+  # ==================================================
+  # POSTGRESQL - Base de datos principal
+  # ==================================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: omipyme-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: omipyme
+      POSTGRES_PASSWORD: omipyme123
+      POSTGRES_DB: omipyme
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=es_CR.UTF-8"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - omipyme-network
+    restart: unless-stopped
+
+  # ==================================================
+  # REDIS - Cache y sesiones
+  # ==================================================
+  redis:
+    image: redis:7-alpine
+    container_name: omipyme-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - omipyme-network
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+  # ==================================================
+  # R SHINY - Dashboards interactivos
+  # ==================================================
+  dashboards:
+    build:
+      context: ./dashboards
+      dockerfile: Dockerfile
+    container_name: omipyme-shiny
+    ports:
+      - "3838:3838"
+    volumes:
+      - ./dashboards:/srv/shiny-server
+      - shiny_logs:/var/log/shiny-server
+    environment:
+      - DATABASE_URL=postgresql://omipyme:omipyme123@postgres:5432/omipyme
+      - API_URL=http://api:8000
+    depends_on:
+      - postgres
+      - api
+    networks:
+      - omipyme-network
+    restart: unless-stopped
+
+  # ==================================================
+  # ADMINER - Administrador de bases de datos (Opcional)
+  # ==================================================
+  adminer:
+    image: adminer:latest
+    container_name: omipyme-adminer
+    ports:
+      - "8081:8080"
+    networks:
+      - omipyme-network
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - mysql
+
+  # ==================================================
+  # NGINX - Reverse Proxy (Producción)
+  # ==================================================
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: omipyme-nginx
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+  #     - ./nginx/ssl:/etc/nginx/ssl
+  #   depends_on:
+  #     - frontend
+  #     - api
+  #     - wordpress
+  #   networks:
+  #     - omipyme-network
+  #   restart: unless-stopped
+
+# ==================================================
+# VOLUMES
+# ==================================================
+volumes:
+  postgres_data:
+    driver: local
+  mysql_data:
+    driver: local
+  redis_data:
+    driver: local
+  wordpress_data:
+    driver: local
+  shiny_logs:
+    driver: local
+
+# ==================================================
+# NETWORKS
+# ==================================================
+networks:
+  omipyme-network:
+    driver: bridge

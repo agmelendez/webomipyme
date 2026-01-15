@@ -1,0 +1,57 @@
+{
+  "name": "omipyme-monorepo",
+  "version": "1.0.0",
+  "description": "OMiPYME - Observatorio de Micro, Pequeñas y Medianas Empresas - UNED Costa Rica",
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:api": "cd api && uvicorn app.main:app --reload",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "start": "npm-run-all --parallel start:*",
+    "start:frontend": "cd frontend && npm run start",
+    "start:api": "cd api && uvicorn app.main:app --host 0.0.0.0 --port 8000",
+    "lint": "npm run lint:frontend && npm run lint:api",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:api": "cd api && flake8 app/",
+    "format": "npm run format:frontend && npm run format:api",
+    "format:frontend": "cd frontend && npm run format",
+    "format:api": "cd api && black app/",
+    "test": "npm run test:frontend && npm run test:api",
+    "test:frontend": "cd frontend && npm run test",
+    "test:api": "cd api && pytest",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:build": "docker-compose build",
+    "docker:logs": "docker-compose logs -f",
+    "docker:clean": "docker-compose down -v --rmi all --remove-orphans",
+    "setup": "npm run setup:frontend && npm run setup:api",
+    "setup:frontend": "cd frontend && npm install",
+    "setup:api": "cd api && python -m venv venv && . venv/bin/activate && pip install -r requirements.txt",
+    "clean": "npm run clean:frontend && npm run clean:api",
+    "clean:frontend": "cd frontend && rm -rf .next node_modules",
+    "clean:api": "cd api && rm -rf __pycache__ .pytest_cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uned-cr/omipyme-web.git"
+  },
+  "keywords": [
+    "omipyme",
+    "mipyme",
+    "uned",
+    "costa-rica",
+    "observatorio",
+    "emprendimiento"
+  ],
+  "author": "UNED Costa Rica",
+  "license": "PROPRIETARY",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "concurrently": "^8.2.2"
+  }
+}
