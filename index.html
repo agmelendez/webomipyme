@@ -538,6 +538,161 @@
             color: var(--color-gray-800);
             font-weight: 600;
         }
+
+        /* Productos Digitales Section */
+        .productos-section {
+            background: var(--color-gray-50);
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .productos-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .productos-categoria {
+            margin-bottom: 4rem;
+        }
+
+        .productos-categoria:last-child {
+            margin-bottom: 0;
+        }
+
+        .categoria-title {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            color: var(--color-gray-900);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--color-primary);
+        }
+
+        .categoria-icon {
+            font-size: 2rem;
+        }
+
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .producto-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            border-left: 4px solid var(--color-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .producto-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .producto-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .producto-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            border-left-color: var(--color-secondary);
+        }
+
+        .producto-destacado {
+            border-left-color: var(--color-herramientas);
+            background: linear-gradient(135deg, white 0%, rgba(255, 107, 53, 0.05) 100%);
+        }
+
+        .producto-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .producto-card:hover .producto-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .producto-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-primary);
+            font-family: var(--font-heading);
+        }
+
+        .producto-description {
+            color: var(--color-gray-800);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .producto-badge {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .producto-badge-new {
+            background: var(--color-herramientas);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+        }
+
+        /* Responsive para Productos */
+        @media (max-width: 768px) {
+            .productos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .categoria-title {
+                font-size: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .producto-card {
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -647,6 +802,117 @@
                     <li>Oportunidades de Negocio</li>
                     <li>Comunidad MIPYME</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Digitales Section -->
+    <section class="productos-section">
+        <div class="productos-content">
+            <h2 class="section-title">🚀 Productos Digitales y Recursos</h2>
+            <p style="text-align: center; max-width: 900px; margin: 0 auto 3rem; color: var(--color-gray-800); font-size: 1.1rem;">
+                Explora nuestras herramientas interactivas, mapas georreferenciados, sistemas de análisis y asistentes virtuales para el sector MIPYME
+            </p>
+
+            <!-- Mapas y Visualizaciones -->
+            <div class="productos-categoria">
+                <h3 class="categoria-title">
+                    <span class="categoria-icon">🗺️</span>
+                    Mapas y Visualizaciones Geográficas
+                </h3>
+                <div class="productos-grid">
+                    <a href="https://arcg.is/CjWT5" target="_blank" class="producto-card">
+                        <div class="producto-icon">📊</div>
+                        <h4 class="producto-title">Perspectivas Económicas MiPymes CR 2023</h4>
+                        <p class="producto-description">Análisis económico y estadísticas del sector MIPYME en Costa Rica</p>
+                        <span class="producto-badge">ArcGIS</span>
+                    </a>
+
+                    <a href="https://arcg.is/1eCqab" target="_blank" class="producto-card">
+                        <div class="producto-icon">🏭</div>
+                        <h4 class="producto-title">Parque Empresarial MiPYMES CR</h4>
+                        <p class="producto-description">Mapa interactivo de empresas y zonas empresariales del país</p>
+                        <span class="producto-badge">ArcGIS</span>
+                    </a>
+
+                    <a href="https://arcg.is/9Taf5" target="_blank" class="producto-card">
+                        <div class="producto-icon">📍</div>
+                        <h4 class="producto-title">Proyecto Guápiles Patentes Municipales</h4>
+                        <p class="producto-description">Visualización de patentes comerciales en Guápiles</p>
+                        <span class="producto-badge">ArcGIS</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Herramientas de Análisis -->
+            <div class="productos-categoria">
+                <h3 class="categoria-title">
+                    <span class="categoria-icon">📈</span>
+                    Herramientas de Análisis y Monitoreo
+                </h3>
+                <div class="productos-grid">
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMmY5ZDc1YzgtNzYzYi00MThiLThlYjAtYmIyYTk1MjFjMTRjIiwidCI6ImU3OTg0Y2FjLTI1NDMtNGY4OC04Zjk3LTk1MjQzMzVlNmJjNCIsImMiOjR9" target="_blank" class="producto-card">
+                        <div class="producto-icon">📊</div>
+                        <h4 class="producto-title">Sistema de Monitoreo con PowerBI</h4>
+                        <p class="producto-description">Dashboard en tiempo real con indicadores clave del sector MIPYME</p>
+                        <span class="producto-badge">Power BI</span>
+                    </a>
+
+                    <a href="https://omipymes.uned.ac.cr/selfiedistrital/" target="_blank" class="producto-card">
+                        <div class="producto-icon">📸</div>
+                        <h4 class="producto-title">Selfie Distrital</h4>
+                        <p class="producto-description">Herramienta interactiva para conocer el perfil empresarial por distrito</p>
+                        <span class="producto-badge">Web App</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Asistentes Virtuales con IA -->
+            <div class="productos-categoria">
+                <h3 class="categoria-title">
+                    <span class="categoria-icon">🤖</span>
+                    Asistentes Virtuales con Inteligencia Artificial
+                </h3>
+                <div class="productos-grid">
+                    <a href="https://chatgpt.com/g/g-UKpcQkwMI-omipymes-uned-asistente-virtual-territorial-cr" target="_blank" class="producto-card producto-destacado">
+                        <div class="producto-icon">💬</div>
+                        <h4 class="producto-title">OMiPYMES Asistente Virtual</h4>
+                        <p class="producto-description">Asistente IA especializado en consultas territoriales de Costa Rica</p>
+                        <span class="producto-badge">ChatGPT</span>
+                        <span class="producto-badge-new">IA</span>
+                    </a>
+
+                    <a href="https://chatgpt.com/g/g-uCgjrweCI-omipymes-uned-analista-territorial-costarricense" target="_blank" class="producto-card producto-destacado">
+                        <div class="producto-icon">🔍</div>
+                        <h4 class="producto-title">OMiPYMES Analista Territorial</h4>
+                        <p class="producto-description">Analista IA para evaluación y diagnóstico territorial costarricense</p>
+                        <span class="producto-badge">ChatGPT</span>
+                        <span class="producto-badge-new">IA</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- RED UNED EMPRENDE -->
+            <div class="productos-categoria">
+                <h3 class="categoria-title">
+                    <span class="categoria-icon">🎯</span>
+                    RED UNED EMPRENDE
+                </h3>
+                <div class="productos-grid">
+                    <a href="https://arcg.is/1mDmLi1" target="_blank" class="producto-card">
+                        <div class="producto-icon">📋</div>
+                        <h4 class="producto-title">Encuesta RED UNED EMPRENDE</h4>
+                        <p class="producto-description">Participa en nuestra encuesta para el fortalecimiento empresarial</p>
+                        <span class="producto-badge">ArcGIS Survey</span>
+                    </a>
+
+                    <a href="https://arcg.is/0L4GmX" target="_blank" class="producto-card">
+                        <div class="producto-icon">📅</div>
+                        <h4 class="producto-title">Calendario de Actividades</h4>
+                        <p class="producto-description">Eventos, talleres y capacitaciones de la RED UNED EMPRENDE</p>
+                        <span class="producto-badge">Calendario</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
