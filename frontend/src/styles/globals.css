@@ -1,0 +1,382 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importación de fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ============================================
+   VARIABLES CSS PERSONALIZADAS
+   ============================================ */
+:root {
+  /* Colores Institucionales */
+  --color-uned-blue: #003366;
+  --color-uned-green: #006633;
+
+  /* Colores por Pilar */
+  --color-observatorio: #003366;
+  --color-herramientas: #FF6B35;
+  --color-investigacion: #006633;
+  --color-formacion: #7B2CBF;
+  --color-ecosistema: #00A8A8;
+
+  /* Espaciado y dimensiones */
+  --header-height: 80px;
+  --navigation-height: 60px;
+  --max-content-width: 1400px;
+
+  /* Transiciones */
+  --transition-base: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
+/* ============================================
+   ESTILOS BASE Y RESET
+   ============================================ */
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-body antialiased;
+  }
+
+  /* Tipografía Base */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold text-uned-blue;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl leading-tight;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+
+  h6 {
+    @apply text-base md:text-lg lg:text-xl;
+  }
+
+  p {
+    @apply text-base leading-relaxed text-gray-700;
+  }
+
+  a {
+    @apply text-uned-blue hover:text-uned-blue/80 transition-colors duration-300;
+  }
+
+  /* Focus visible para accesibilidad */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-uned-blue;
+  }
+
+  /* Mejoras de legibilidad */
+  strong {
+    @apply font-semibold text-gray-900;
+  }
+
+  em {
+    @apply italic;
+  }
+
+  code {
+    @apply font-mono text-sm bg-gray-100 px-1.5 py-0.5 rounded;
+  }
+
+  pre {
+    @apply font-mono text-sm bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto;
+  }
+}
+
+/* ============================================
+   COMPONENTES REUTILIZABLES
+   ============================================ */
+@layer components {
+  /* Contenedores */
+  .container-custom {
+    @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-24;
+  }
+
+  /* Botones por estilo de pilar */
+  .btn-base {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn-base bg-uned-blue text-white hover:bg-uned-blue/90 focus:ring-uned-blue;
+  }
+
+  .btn-secondary {
+    @apply btn-base bg-uned-green text-white hover:bg-uned-green/90 focus:ring-uned-green;
+  }
+
+  .btn-observatorio {
+    @apply btn-base bg-pilar-observatorio text-white hover:bg-pilar-observatorio/90 focus:ring-pilar-observatorio;
+  }
+
+  .btn-herramientas {
+    @apply btn-base bg-pilar-herramientas text-white hover:bg-pilar-herramientas/90 focus:ring-pilar-herramientas;
+  }
+
+  .btn-investigacion {
+    @apply btn-base bg-pilar-investigacion text-white hover:bg-pilar-investigacion/90 focus:ring-pilar-investigacion;
+  }
+
+  .btn-formacion {
+    @apply btn-base bg-pilar-formacion text-white hover:bg-pilar-formacion/90 focus:ring-pilar-formacion;
+  }
+
+  .btn-ecosistema {
+    @apply btn-base bg-pilar-ecosistema text-white hover:bg-pilar-ecosistema/90 focus:ring-pilar-ecosistema;
+  }
+
+  .btn-outline {
+    @apply btn-base border-2 border-uned-blue text-uned-blue hover:bg-uned-blue hover:text-white focus:ring-uned-blue;
+  }
+
+  /* Tarjetas */
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden;
+  }
+
+  .card-pilar {
+    @apply card relative border-t-4 hover:scale-[1.02] transition-transform duration-300;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-observatorio {
+    @apply badge bg-pilar-observatorio-bg text-pilar-observatorio;
+  }
+
+  .badge-herramientas {
+    @apply badge bg-pilar-herramientas-bg text-pilar-herramientas;
+  }
+
+  .badge-investigacion {
+    @apply badge bg-pilar-investigacion-bg text-pilar-investigacion;
+  }
+
+  .badge-formacion {
+    @apply badge bg-pilar-formacion-bg text-pilar-formacion;
+  }
+
+  .badge-ecosistema {
+    @apply badge bg-pilar-ecosistema-bg text-pilar-ecosistema;
+  }
+
+  /* Inputs y Forms */
+  .input-base {
+    @apply block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-uned-blue focus:border-uned-blue transition-colors;
+  }
+
+  .label-base {
+    @apply block text-sm font-semibold text-gray-700 mb-2;
+  }
+
+  /* Líneas divisorias con gradiente */
+  .divider-pilar {
+    @apply h-1 w-24 rounded-full mx-auto my-6;
+  }
+
+  /* Overlays */
+  .overlay {
+    @apply absolute inset-0 bg-black/50 backdrop-blur-sm;
+  }
+
+  /* Animaciones de carga */
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+
+  /* Sección Hero */
+  .hero-section {
+    @apply relative min-h-[600px] flex items-center justify-center text-white overflow-hidden;
+  }
+
+  /* Grid responsivo de pilares */
+  .pilares-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6;
+  }
+}
+
+/* ============================================
+   UTILIDADES PERSONALIZADAS
+   ============================================ */
+@layer utilities {
+  /* Efectos de hover para imágenes */
+  .img-hover-zoom {
+    @apply overflow-hidden;
+  }
+
+  .img-hover-zoom img {
+    @apply transition-transform duration-500 hover:scale-110;
+  }
+
+  /* Truncado de texto con gradiente */
+  .text-gradient-fade {
+    @apply relative;
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+
+  /* Texto con gradiente de color */
+  .text-gradient-observatorio {
+    @apply bg-gradient-observatorio bg-clip-text text-transparent;
+  }
+
+  .text-gradient-herramientas {
+    @apply bg-gradient-herramientas bg-clip-text text-transparent;
+  }
+
+  .text-gradient-investigacion {
+    @apply bg-gradient-investigacion bg-clip-text text-transparent;
+  }
+
+  .text-gradient-formacion {
+    @apply bg-gradient-formacion bg-clip-text text-transparent;
+  }
+
+  .text-gradient-ecosistema {
+    @apply bg-gradient-ecosistema bg-clip-text text-transparent;
+  }
+
+  /* Scroll personalizado */
+  .scrollbar-custom {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-uned-blue) var(--color-gray-100);
+  }
+
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    @apply bg-uned-blue rounded-full;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    @apply bg-uned-blue/80;
+  }
+
+  /* Animaciones de entrada */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  /* Skip to content para accesibilidad */
+  .skip-to-content {
+    @apply absolute -top-40 left-0 bg-uned-blue text-white px-4 py-2 focus:top-0 z-50 transition-all;
+  }
+}
+
+/* ============================================
+   ANIMACIONES PERSONALIZADAS
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* ============================================
+   ESTILOS PARA IMPRESIÓN
+   ============================================ */
+@media print {
+  .no-print {
+    @apply hidden;
+  }
+
+  body {
+    @apply text-black bg-white;
+  }
+
+  a {
+    @apply text-black underline;
+  }
+}
+
+/* ============================================
+   MODO ALTO CONTRASTE (Accesibilidad)
+   ============================================ */
+@media (prefers-contrast: high) {
+  * {
+    @apply border-black;
+  }
+
+  body {
+    @apply bg-white text-black;
+  }
+
+  a {
+    @apply text-blue-800 underline;
+  }
+}
+
+/* ============================================
+   REDUCCIÓN DE MOVIMIENTO (Accesibilidad)
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
