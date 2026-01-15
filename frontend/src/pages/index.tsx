@@ -1,9 +1,8 @@
 import React from 'react';
-import Head from 'next/head';
-import MainNavigation from '@/components/navigation/MainNavigation';
+import Layout from '@/components/layout/Layout';
 import HeroSection from '@/components/common/HeroSection';
 import PilaresGrid from '@/components/pilares/PilaresGrid';
-import { SEO_DEFAULTS } from '@/lib/constants';
+import { PILARES } from '@/lib/constants';
 
 /**
  * Página de Inicio - Home
@@ -12,36 +11,7 @@ import { SEO_DEFAULTS } from '@/lib/constants';
 
 export default function HomePage() {
   return (
-    <>
-      <Head>
-        <title>{SEO_DEFAULTS.siteName}</title>
-        <meta name="description" content={SEO_DEFAULTS.description} />
-        <meta name="keywords" content={SEO_DEFAULTS.keywords.join(', ')} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={SEO_DEFAULTS.siteName} />
-        <meta property="og:description" content={SEO_DEFAULTS.description} />
-        <meta property="og:image" content={SEO_DEFAULTS.ogImage} />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content={SEO_DEFAULTS.twitterHandle} />
-        <meta name="twitter:title" content={SEO_DEFAULTS.siteName} />
-        <meta name="twitter:description" content={SEO_DEFAULTS.description} />
-        <meta name="twitter:image" content={SEO_DEFAULTS.ogImage} />
-
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-      </Head>
-
-      {/* Navegación Principal */}
-      <MainNavigation />
-
-      {/* Contenido Principal */}
-      <main id="main-content">
+    <Layout>
         {/* Hero Section con indicadores dinámicos y buscador */}
         <HeroSection />
 
@@ -233,84 +203,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white section-padding">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-            {/* Columna 1 - Info */}
-            <div>
-              <h3 className="text-xl font-heading font-bold mb-4">OMiPYME</h3>
-              <p className="text-gray-400 mb-4">
-                Observatorio de Micro, Pequeñas y Medianas Empresas de la UNED
-                Costa Rica
-              </p>
-              <div className="flex space-x-4">
-                {/* Redes sociales - placeholders */}
-                {['F', 'T', 'I', 'L'].map((social) => (
-                  <a
-                    key={social}
-                    href="#"
-                    className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-uned-blue transition-colors"
-                  >
-                    {social}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Columna 2 - Enlaces rápidos */}
-            <div>
-              <h4 className="font-heading font-semibold mb-4">Enlaces Rápidos</h4>
-              <ul className="space-y-2">
-                {['Nosotros', 'Contacto', 'Blog', 'Ayuda'].map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Columna 3 - Pilares */}
-            <div>
-              <h4 className="font-heading font-semibold mb-4">Pilares</h4>
-              <ul className="space-y-2">
-                {Object.values(PILARES).map((pilar) => (
-                  <li key={pilar.id}>
-                    <a
-                      href={pilar.ruta}
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
-                      {pilar.nombre}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Columna 4 - Contacto */}
-            <div>
-              <h4 className="font-heading font-semibold mb-4">Contacto</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>observatorio@uned.ac.cr</li>
-                <li>+506 2527-2000</li>
-                <li>San José, Costa Rica</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Copyright */}
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>
-              © 2024 OMiPYME - Universidad Estatal a Distancia. Todos los
-              derechos reservados.
-            </p>
-          </div>
-        </div>
-      </footer>
-    </>
+    </Layout>
   );
 }
