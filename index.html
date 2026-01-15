@@ -200,10 +200,10 @@
             animation: fadeInUp 0.6s ease both;
         }
 
-        .pilar-card:nth-child(1) { --pilar-color: var(--color-observatorio); animation-delay: 0.1s; }
-        .pilar-card:nth-child(2) { --pilar-color: var(--color-herramientas); animation-delay: 0.2s; }
+        .pilar-card:nth-child(1) { --pilar-color: var(--color-herramientas); animation-delay: 0.1s; }
+        .pilar-card:nth-child(2) { --pilar-color: var(--color-formacion); animation-delay: 0.2s; }
         .pilar-card:nth-child(3) { --pilar-color: var(--color-investigacion); animation-delay: 0.3s; }
-        .pilar-card:nth-child(4) { --pilar-color: var(--color-formacion); animation-delay: 0.4s; }
+        .pilar-card:nth-child(4) { --pilar-color: var(--color-observatorio); animation-delay: 0.4s; }
         .pilar-card:nth-child(5) { --pilar-color: var(--color-ecosistema); animation-delay: 0.5s; }
 
         .pilar-card:hover {
@@ -739,29 +739,29 @@
     <section class="pilares-section">
         <h2 class="section-title">🏛️ Los Cinco Pilares</h2>
         <div class="pilares-grid">
-            <!-- Pilar 1: Observatorio -->
-            <div class="pilar-card">
-                <span class="pilar-icon">📊</span>
-                <h3 class="pilar-title">1. Observatorio</h3>
-                <p class="pilar-description">Visualización de datos en tiempo real y estadísticas MIPYME</p>
-                <ul class="pilar-features">
-                    <li>Dashboards Interactivos (R Shiny)</li>
-                    <li>Estadísticas por Cantón</li>
-                    <li>Encuestas y Estudios</li>
-                    <li>Mapas Georreferenciados</li>
-                </ul>
-            </div>
-
-            <!-- Pilar 2: Herramientas -->
+            <!-- Pilar 1: Herramientas -->
             <div class="pilar-card">
                 <span class="pilar-icon">🎯</span>
-                <h3 class="pilar-title">2. Herramientas</h3>
+                <h3 class="pilar-title">1. Herramientas</h3>
                 <p class="pilar-description">Recursos digitales y asistentes inteligentes</p>
                 <ul class="pilar-features">
                     <li>Selfie Distrital</li>
                     <li>Chatbot OBI (IA)</li>
                     <li>Calculadoras Financieras</li>
                     <li>Recursos Descargables</li>
+                </ul>
+            </div>
+
+            <!-- Pilar 2: Formación -->
+            <div class="pilar-card">
+                <span class="pilar-icon">🎓</span>
+                <h3 class="pilar-title">2. Formación</h3>
+                <p class="pilar-description">Capacitación y desarrollo empresarial</p>
+                <ul class="pilar-features">
+                    <li>Cursos y Talleres</li>
+                    <li>Toolkits Empresariales</li>
+                    <li>Podcast OMiPYME</li>
+                    <li>Certificaciones</li>
                 </ul>
             </div>
 
@@ -778,16 +778,16 @@
                 </ul>
             </div>
 
-            <!-- Pilar 4: Formación -->
+            <!-- Pilar 4: Observatorio -->
             <div class="pilar-card">
-                <span class="pilar-icon">🎓</span>
-                <h3 class="pilar-title">4. Formación</h3>
-                <p class="pilar-description">Capacitación y desarrollo empresarial</p>
+                <span class="pilar-icon">📊</span>
+                <h3 class="pilar-title">4. Observatorio</h3>
+                <p class="pilar-description">Visualización de datos en tiempo real y estadísticas MIPYME</p>
                 <ul class="pilar-features">
-                    <li>Cursos y Talleres</li>
-                    <li>Toolkits Empresariales</li>
-                    <li>Podcast OMiPYME</li>
-                    <li>Certificaciones</li>
+                    <li>Dashboards Interactivos (R Shiny)</li>
+                    <li>Estadísticas por Cantón</li>
+                    <li>Encuestas y Estudios</li>
+                    <li>Mapas Georreferenciados</li>
                 </ul>
             </div>
 
@@ -814,11 +814,36 @@
                 Explora nuestras herramientas interactivas, mapas georreferenciados, sistemas de análisis y asistentes virtuales para el sector MIPYME
             </p>
 
-            <!-- Mapas y Visualizaciones -->
+            <!-- Asistentes Virtuales con IA -->
+            <div class="productos-categoria">
+                <h3 class="categoria-title">
+                    <span class="categoria-icon">🤖</span>
+                    Asistentes Virtuales con Inteligencia Artificial
+                </h3>
+                <div class="productos-grid">
+                    <a href="https://chatgpt.com/g/g-UKpcQkwMI-omipymes-uned-asistente-virtual-territorial-cr" target="_blank" class="producto-card producto-destacado">
+                        <div class="producto-icon">💬</div>
+                        <h4 class="producto-title">OMiPYMES Asistente Virtual</h4>
+                        <p class="producto-description">Asistente IA especializado en consultas territoriales de Costa Rica</p>
+                        <span class="producto-badge">ChatGPT</span>
+                        <span class="producto-badge-new">IA</span>
+                    </a>
+
+                    <a href="https://chatgpt.com/g/g-uCgjrweCI-omipymes-uned-analista-territorial-costarricense" target="_blank" class="producto-card producto-destacado">
+                        <div class="producto-icon">🔍</div>
+                        <h4 class="producto-title">OMiPYMES Analista Territorial</h4>
+                        <p class="producto-description">Analista IA para evaluación y diagnóstico territorial costarricense</p>
+                        <span class="producto-badge">ChatGPT</span>
+                        <span class="producto-badge-new">IA</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Productos Digitales y Recursos -->
             <div class="productos-categoria">
                 <h3 class="categoria-title">
                     <span class="categoria-icon">🗺️</span>
-                    Mapas y Visualizaciones Geográficas
+                    Productos Digitales y Recursos
                 </h3>
                 <div class="productos-grid">
                     <a href="https://arcg.is/CjWT5" target="_blank" class="producto-card">
@@ -863,31 +888,6 @@
                         <h4 class="producto-title">Selfie Distrital</h4>
                         <p class="producto-description">Herramienta interactiva para conocer el perfil empresarial por distrito</p>
                         <span class="producto-badge">Web App</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Asistentes Virtuales con IA -->
-            <div class="productos-categoria">
-                <h3 class="categoria-title">
-                    <span class="categoria-icon">🤖</span>
-                    Asistentes Virtuales con Inteligencia Artificial
-                </h3>
-                <div class="productos-grid">
-                    <a href="https://chatgpt.com/g/g-UKpcQkwMI-omipymes-uned-asistente-virtual-territorial-cr" target="_blank" class="producto-card producto-destacado">
-                        <div class="producto-icon">💬</div>
-                        <h4 class="producto-title">OMiPYMES Asistente Virtual</h4>
-                        <p class="producto-description">Asistente IA especializado en consultas territoriales de Costa Rica</p>
-                        <span class="producto-badge">ChatGPT</span>
-                        <span class="producto-badge-new">IA</span>
-                    </a>
-
-                    <a href="https://chatgpt.com/g/g-uCgjrweCI-omipymes-uned-analista-territorial-costarricense" target="_blank" class="producto-card producto-destacado">
-                        <div class="producto-icon">🔍</div>
-                        <h4 class="producto-title">OMiPYMES Analista Territorial</h4>
-                        <p class="producto-description">Analista IA para evaluación y diagnóstico territorial costarricense</p>
-                        <span class="producto-badge">ChatGPT</span>
-                        <span class="producto-badge-new">IA</span>
                     </a>
                 </div>
             </div>
