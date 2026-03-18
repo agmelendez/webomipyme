@@ -9,702 +9,231 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            /* Colores Institucionales */
             --color-primary: #003366;
-            --color-secondary: #006633;
-
-            /* Colores por Pilar */
+            --color-secondary: #16A34A;
             --color-observatorio: #003366;
             --color-herramientas: #FF6B35;
-            --color-investigacion: #006633;
-            --color-formacion: #7B2CBF;
-            --color-ecosistema: #00A8A8;
-
-            /* Colores de Soporte */
+            --color-investigacion: #00B4D8;
+            --color-formacion: #F5A623;
+            --color-ecosistema: #16A34A;
+            --color-celeste: #00B4D8;
             --color-gray-50: #F9FAFB;
             --color-gray-100: #F3F4F6;
             --color-gray-800: #1F2937;
             --color-gray-900: #111827;
-
-            /* Tipografía */
             --font-heading: 'Montserrat', sans-serif;
             --font-body: 'Open Sans', sans-serif;
         }
 
-        body {
-            font-family: var(--font-body);
-            color: var(--color-gray-900);
-            line-height: 1.6;
-            background-color: var(--color-gray-50);
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            line-height: 1.2;
-        }
+        body { font-family: var(--font-body); color: var(--color-gray-900); line-height: 1.6; background-color: var(--color-gray-50); }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; line-height: 1.2; }
 
         /* Header */
         .header {
             background: linear-gradient(135deg, var(--color-primary) 0%, #004d99 100%);
             color: white;
-            padding: 2rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.25rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-
         .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
         }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo {
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--color-primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .logo-text h1 {
-            font-size: 1.5rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .logo-text p {
-            font-size: 0.875rem;
-            opacity: 0.9;
-        }
-
+        .logo-section { display: flex; align-items: center; gap: 1.5rem; }
+        .header-logo { height: 55px; width: auto; object-fit: contain; }
+        .logo-divider { width: 1px; height: 45px; background: rgba(255,255,255,0.4); }
         .github-link {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255,255,255,0.15); padding: 0.75rem 1.5rem; border-radius: 8px;
+            text-decoration: none; color: white; font-weight: 600; transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
         }
+        .github-link:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
 
-        .github-link:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
+            background: linear-gradient(135deg, var(--color-primary) 0%, #005599 100%);
+            color: white; padding: 4rem 2rem; text-align: center;
         }
+        .hero-content { max-width: 900px; margin: 0 auto; }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; animation: fadeInUp 0.8s ease; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95; animation: fadeInUp 0.8s ease 0.2s both; }
+        .hero-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 2rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.4s both; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 700; display: block; margin-bottom: 0.5rem; }
+        .stat-label { font-size: 1rem; opacity: 0.9; }
 
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        /* Pilares Section */
-        .pilares-section {
-            max-width: 1200px;
-            margin: -3rem auto 4rem;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            color: var(--color-gray-900);
-        }
-
-        .pilares-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
+        /* Pilares overview */
+        .pilares-section { max-width: 1200px; margin: -3rem auto 4rem; padding: 0 2rem; position: relative; z-index: 10; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 3rem; color: var(--color-gray-900); }
+        .pilares-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
         .pilar-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--pilar-color);
-            cursor: pointer;
-            animation: fadeInUp 0.6s ease both;
+            background: white; border-radius: 16px; padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;
+            border-top: 4px solid var(--pilar-color); animation: fadeInUp 0.6s ease both;
         }
-
         .pilar-card:nth-child(1) { --pilar-color: var(--color-herramientas); animation-delay: 0.1s; }
         .pilar-card:nth-child(2) { --pilar-color: var(--color-formacion); animation-delay: 0.2s; }
         .pilar-card:nth-child(3) { --pilar-color: var(--color-investigacion); animation-delay: 0.3s; }
         .pilar-card:nth-child(4) { --pilar-color: var(--color-observatorio); animation-delay: 0.4s; }
         .pilar-card:nth-child(5) { --pilar-color: var(--color-ecosistema); animation-delay: 0.5s; }
+        .pilar-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .pilar-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+        .pilar-title { font-size: 1.4rem; margin-bottom: 0.75rem; color: var(--pilar-color); }
+        .pilar-description { color: var(--color-gray-800); margin-bottom: 1rem; font-size: 0.95rem; }
+        .pilar-features { list-style: none; padding-left: 0; }
+        .pilar-features li { padding: 0.4rem 0; font-size: 0.9rem; color: var(--color-gray-800); border-bottom: 1px solid var(--color-gray-100); }
+        .pilar-features li:last-child { border-bottom: none; }
+        .pilar-features li::before { content: "✓ "; color: var(--pilar-color); font-weight: bold; margin-right: 0.4rem; }
+        .pilar-features a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+        .pilar-features a:hover { color: var(--pilar-color); text-decoration: underline; }
 
-        .pilar-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        /* Pilar detail sections */
+        .pilar-detail-section { padding: 4rem 2rem; }
+        .pilar-detail-content { max-width: 1200px; margin: 0 auto; }
+        .pilar-section-header {
+            display: flex; align-items: center; gap: 1rem;
+            margin-bottom: 2.5rem; padding-bottom: 1rem;
+            border-bottom: 4px solid var(--section-color);
         }
-
-        .pilar-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .pilar-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--pilar-color);
-        }
-
-        .pilar-description {
-            color: var(--color-gray-800);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .pilar-features {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .pilar-features li {
-            padding: 0.5rem 0;
-            font-size: 0.9rem;
-            color: var(--color-gray-800);
-            border-bottom: 1px solid var(--color-gray-100);
-        }
-
-        .pilar-features li:last-child {
-            border-bottom: none;
-        }
-
-        .pilar-features li::before {
-            content: "✓ ";
-            color: var(--pilar-color);
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-
-        /* Arquitectura Section */
-        .arquitectura-section {
-            background: white;
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-        }
-
-        .arquitectura-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .tech-card {
-            background: var(--color-gray-50);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .tech-card:hover {
-            border-color: var(--color-primary);
-            transform: scale(1.05);
-        }
-
-        .tech-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .tech-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: var(--color-primary);
-        }
-
-        .tech-description {
-            color: var(--color-gray-800);
-            font-size: 0.9rem;
-        }
-
-        .tech-badge {
-            display: inline-block;
-            background: var(--color-primary);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Como Funciona Section */
-        .como-funciona-section {
-            background: linear-gradient(135deg, var(--color-gray-50) 0%, white 100%);
-            padding: 4rem 2rem;
-        }
-
-        .como-funciona-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .steps {
-            display: grid;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .step {
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .step:hover {
-            transform: translateX(10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .step-number {
-            flex-shrink: 0;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .step-content h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: var(--color-primary);
-        }
-
-        .step-content p {
-            color: var(--color-gray-800);
-        }
-
-        .step-code {
-            background: var(--color-gray-900);
-            color: #00ff88;
-            padding: 1rem;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            margin-top: 1rem;
-            overflow-x: auto;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--color-primary);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--color-gray-900);
-            color: white;
-            padding: 3rem 2rem 1rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            padding: 0.5rem 0;
-        }
-
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 1.75rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .hero-stats {
-                gap: 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            .pilares-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .step {
-                flex-direction: column;
-            }
-
-            .header-content {
-                justify-content: center;
-                text-align: center;
-            }
-        }
-
-        /* Badges */
-        .badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .badge {
-            background: var(--color-gray-100);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            color: var(--color-gray-800);
-            font-weight: 600;
-        }
-
-        /* Productos Digitales Section */
-        .productos-section {
-            background: var(--color-gray-50);
-            padding: 4rem 2rem;
-            margin: 2rem 0;
-        }
-
-        .productos-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .productos-categoria {
-            margin-bottom: 4rem;
-        }
-
-        .productos-categoria:last-child {
-            margin-bottom: 0;
-        }
-
-        .categoria-title {
-            font-size: 1.75rem;
-            margin-bottom: 2rem;
-            color: var(--color-gray-900);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 3px solid var(--color-primary);
-        }
-
-        .categoria-icon {
-            font-size: 2rem;
-        }
-
-        .productos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .producto-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            border-left: 4px solid var(--color-primary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .producto-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .producto-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .producto-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-            border-left-color: var(--color-secondary);
-        }
-
-        .producto-destacado {
-            border-left-color: var(--color-herramientas);
-            background: linear-gradient(135deg, white 0%, rgba(255, 107, 53, 0.05) 100%);
-        }
-
-        .producto-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .producto-card:hover .producto-icon {
-            transform: scale(1.2) rotate(5deg);
-        }
-
-        .producto-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--color-primary);
+        .pilar-section-icon { font-size: 2.5rem; }
+        .pilar-section-title { font-size: 2rem; color: var(--section-color); }
+        .pilar-sub-section { margin-bottom: 2.5rem; }
+        .pilar-sub-title {
+            font-size: 1.2rem; color: var(--color-gray-900); margin-bottom: 1.25rem;
+            padding-left: 0.75rem; border-left: 4px solid var(--section-color);
             font-family: var(--font-heading);
         }
-
-        .producto-description {
-            color: var(--color-gray-800);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            flex-grow: 1;
-            margin-bottom: 1rem;
+        .links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+        .link-card {
+            background: white; border-radius: 12px; padding: 1.5rem;
+            text-decoration: none; color: inherit;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--section-color);
+            transition: all 0.3s ease; display: flex; align-items: flex-start; gap: 1rem;
         }
+        .link-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+        .link-card-icon { font-size: 1.75rem; flex-shrink: 0; }
+        .link-card-content h4 { font-size: 1rem; margin-bottom: 0.35rem; color: var(--section-color); font-family: var(--font-heading); }
+        .link-card-content p { font-size: 0.85rem; color: var(--color-gray-800); margin-bottom: 0.5rem; }
+        .link-card-badge {
+            display: inline-block; padding: 0.2rem 0.6rem; border-radius: 12px;
+            font-size: 0.7rem; font-weight: 600; background: var(--section-color); color: white;
+        }
+        .mention-only { background: var(--color-gray-50); border-left-color: #9CA3AF; opacity: 0.8; cursor: default; }
+        .mention-only:hover { transform: none; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .mention-only .link-card-content h4 { color: var(--color-gray-800); }
+        .inactive-badge { background: #9CA3AF !important; }
+        .pending-box {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border: 2px dashed var(--section-color); border-radius: 12px;
+            padding: 2.5rem; text-align: center;
+        }
+        .pending-box .pending-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .pending-box h3 { color: var(--section-color); margin-bottom: 0.75rem; }
+        .pending-box p { color: var(--color-gray-800); }
 
+        /* Social links */
+        .social-links-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .social-link-card {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 1rem 1.5rem; background: white; border-radius: 10px;
+            text-decoration: none; color: var(--color-gray-800);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--section-color);
+            transition: all 0.3s ease; font-weight: 600; font-size: 0.95rem;
+        }
+        .social-link-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); }
+        .social-link-icon { font-size: 1.5rem; }
+
+        /* Section color vars per pilar */
+        .herramientas-detail { --section-color: var(--color-herramientas); }
+        .formacion-detail    { --section-color: var(--color-formacion); }
+        .investigacion-detail{ --section-color: var(--color-investigacion); }
+        .observatorio-detail { --section-color: var(--color-observatorio); }
+        .ecosistema-detail   { --section-color: var(--color-ecosistema); }
+
+        /* Productos section */
+        .productos-section { background: var(--color-gray-50); padding: 4rem 2rem; }
+        .productos-content { max-width: 1200px; margin: 0 auto; }
+        .productos-categoria { margin-bottom: 4rem; }
+        .productos-categoria:last-child { margin-bottom: 0; }
+        .categoria-title {
+            font-size: 1.75rem; margin-bottom: 2rem; color: var(--color-primary);
+            display: flex; align-items: center; gap: 1rem;
+            padding-bottom: 1rem; border-bottom: 3px solid var(--color-primary);
+        }
+        .categoria-title.celeste { border-bottom-color: var(--color-celeste); color: var(--color-celeste); }
+        .categoria-icon { font-size: 2rem; }
+        .productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .producto-card {
+            background: white; border-radius: 16px; padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease;
+            text-decoration: none; color: inherit; display: flex; flex-direction: column;
+            border-left: 4px solid var(--color-primary); position: relative; overflow: hidden;
+        }
+        .producto-card.celeste-card { border-left-color: var(--color-celeste); }
+        .producto-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), #0055AA);
+            transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
+        }
+        .producto-card.celeste-card::before { background: linear-gradient(90deg, var(--color-celeste), #38BDF8); }
+        .producto-card:hover::before { transform: scaleX(1); }
+        .producto-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+        .producto-icon { font-size: 2.5rem; margin-bottom: 1rem; transition: transform 0.3s ease; }
+        .producto-card:hover .producto-icon { transform: scale(1.15) rotate(5deg); }
+        .producto-title { font-size: 1.1rem; margin-bottom: 0.6rem; color: var(--color-primary); font-family: var(--font-heading); }
+        .producto-card.celeste-card .producto-title { color: var(--color-celeste); }
+        .producto-description { color: var(--color-gray-800); font-size: 0.9rem; line-height: 1.5; flex-grow: 1; margin-bottom: 1rem; }
         .producto-badge {
-            display: inline-block;
-            background: var(--color-primary);
-            color: white;
-            padding: 0.35rem 0.85rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-right: 0.5rem;
-            margin-top: 0.5rem;
+            display: inline-block; background: var(--color-primary); color: white;
+            padding: 0.3rem 0.75rem; border-radius: 20px; font-size: 0.72rem;
+            font-weight: 600; margin-right: 0.4rem; margin-top: 0.4rem;
         }
+        .producto-card.celeste-card .producto-badge { background: var(--color-celeste); }
+        .producto-badge-new { background: var(--color-herramientas) !important; animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
-        .producto-badge-new {
-            background: var(--color-herramientas);
-            animation: pulse 2s ease-in-out infinite;
-        }
+        /* Footer */
+        .footer { background: var(--color-gray-900); color: white; padding: 3rem 2rem 1rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-section h3 { margin-bottom: 1rem; color: white; }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { padding: 0.4rem 0; }
+        .footer-section a { color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease; }
+        .footer-section a:hover { color: white; }
+        .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: rgba(255,255,255,0.6); }
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.05);
-                opacity: 0.9;
-            }
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Responsive para Productos */
         @media (max-width: 768px) {
-            .productos-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .categoria-title {
-                font-size: 1.5rem;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-
-            .producto-card {
-                padding: 1.5rem;
-            }
+            .hero h2 { font-size: 1.75rem; }
+            .hero p { font-size: 1rem; }
+            .hero-stats { gap: 1.5rem; }
+            .stat-number { font-size: 2rem; }
+            .pilares-grid { grid-template-columns: 1fr; }
+            .header-content { justify-content: center; text-align: center; }
+            .header-logo { height: 40px; }
+            .logo-section { flex-wrap: wrap; justify-content: center; }
+            .links-grid { grid-template-columns: 1fr; }
+            .productos-grid { grid-template-columns: 1fr; }
+            .social-links-grid { flex-direction: column; }
+            .categoria-title { font-size: 1.4rem; flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
+
     <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="logo-section">
-                <div class="logo">🎯</div>
-                <div class="logo-text">
-                    <h1>OMiPYME</h1>
-                    <p>UNED Costa Rica</p>
-                </div>
+                <img src="logos/logo uned blanco .png" alt="UNED Costa Rica" class="header-logo">
+                <div class="logo-divider"></div>
+                <img src="logos/logo omipyme blanco.png" alt="OMiPYME" class="header-logo">
             </div>
             <a href="https://github.com/agmelendez/webomipyme" target="_blank" class="github-link">
                 📦 Ver en GitHub
@@ -712,47 +241,38 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
             <h2>Observatorio de Micro, Pequeñas y Medianas Empresas</h2>
-            <p>Plataforma digital moderna basada en el Modelo de Cinco Pilares que integra datos, herramientas interactivas, investigación, formación y networking para el fortalecimiento del sector MIPYME costarricense.</p>
-
+            <p>Plataforma digital que integra herramientas interactivas, formación, investigación, datos del sector MIPYME costarricense y ecosistema empresarial.</p>
             <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">5</span>
-                    <span class="stat-label">Pilares Temáticos</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">4</span>
-                    <span class="stat-label">Tecnologías Core</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">∞</span>
-                    <span class="stat-label">Datos MIPYME</span>
-                </div>
+                <div class="stat"><span class="stat-number">5</span><span class="stat-label">Pilares Temáticos</span></div>
+                <div class="stat"><span class="stat-number">+10</span><span class="stat-label">Recursos Disponibles</span></div>
+                <div class="stat"><span class="stat-number">∞</span><span class="stat-label">Datos MIPYME</span></div>
             </div>
         </div>
     </section>
 
-    <!-- Pilares Section -->
+    <!-- Los Cinco Pilares – overview cards -->
     <section class="pilares-section">
         <h2 class="section-title">🏛️ Los Cinco Pilares</h2>
         <div class="pilares-grid">
-            <!-- Pilar 1: Herramientas -->
+
+            <!-- 1. Herramientas -->
             <div class="pilar-card">
-                <span class="pilar-icon">🎯</span>
+                <span class="pilar-icon">🔧</span>
                 <h3 class="pilar-title">1. Herramientas</h3>
-                <p class="pilar-description">Recursos digitales y asistentes inteligentes</p>
+                <p class="pilar-description">Recursos digitales y asistentes inteligentes para el sector MIPYME</p>
                 <ul class="pilar-features">
-                    <li>Selfie Distrital</li>
-                    <li>Chatbot OBI (IA)</li>
+                    <li><a href="https://omipymes.uned.ac.cr/selfiedistrital/" target="_blank">Selfie Distrital</a></li>
+                    <li><a href="https://chatgpt.com/g/g-UKpcQkwMI-omipymes-uned-asistente-virtual-territorial-cr" target="_blank">Chatbot OBI</a></li>
                     <li>Calculadoras Financieras</li>
                     <li>Recursos Descargables</li>
                 </ul>
             </div>
 
-            <!-- Pilar 2: Formación -->
+            <!-- 2. Formación -->
             <div class="pilar-card">
                 <span class="pilar-icon">🎓</span>
                 <h3 class="pilar-title">2. Formación</h3>
@@ -761,11 +281,11 @@
                     <li>Cursos y Talleres</li>
                     <li>Toolkits Empresariales</li>
                     <li>Podcast OMiPYME</li>
-                    <li>Certificaciones</li>
+                    <li>Recursos Digitales</li>
                 </ul>
             </div>
 
-            <!-- Pilar 3: Investigación -->
+            <!-- 3. Investigación -->
             <div class="pilar-card">
                 <span class="pilar-icon">🔬</span>
                 <h3 class="pilar-title">3. Investigación</h3>
@@ -778,22 +298,22 @@
                 </ul>
             </div>
 
-            <!-- Pilar 4: Observatorio -->
+            <!-- 4. Observatorio -->
             <div class="pilar-card">
                 <span class="pilar-icon">📊</span>
                 <h3 class="pilar-title">4. Observatorio</h3>
-                <p class="pilar-description">Visualización de datos en tiempo real y estadísticas MIPYME</p>
+                <p class="pilar-description">Visualización de datos y estadísticas MIPYME</p>
                 <ul class="pilar-features">
-                    <li>Dashboards Interactivos (R Shiny)</li>
-                    <li>Estadísticas por Cantón</li>
+                    <li><a href="https://app.powerbi.com/view?r=eyJrIjoiMmY5ZDc1YzgtNzYzYi00MThiLThlYjAtYmIyYTk1MjFjMTRjIiwidCI6ImU3OTg0Y2FjLTI1NDMtNGY4OC04Zjk3LTk1MjQzMzVlNmJjNCIsImMiOjR9" target="_blank">Dashboard PowerBI</a></li>
+                    <li><a href="https://omipymes.uned.ac.cr/selfiedistrital/" target="_blank">Estadísticas por Cantón</a></li>
                     <li>Encuestas y Estudios</li>
-                    <li>Mapas Georreferenciados</li>
+                    <li><a href="https://arcg.is/1eCqab" target="_blank">Mapas Georreferenciados</a></li>
                 </ul>
             </div>
 
-            <!-- Pilar 5: Ecosistema -->
+            <!-- 5. Ecosistema -->
             <div class="pilar-card">
-                <span class="pilar-icon">🌐</span>
+                <span class="pilar-icon">🌿</span>
                 <h3 class="pilar-title">5. Ecosistema</h3>
                 <p class="pilar-description">Networking y conexión empresarial</p>
                 <ul class="pilar-features">
@@ -803,87 +323,344 @@
                     <li>Comunidad MIPYME</li>
                 </ul>
             </div>
+
         </div>
     </section>
 
-    <!-- Productos Digitales Section -->
+    <!-- ===== HERRAMIENTAS – Detalle ===== -->
+    <section class="pilar-detail-section herramientas-detail" style="background: white;">
+        <div class="pilar-detail-content">
+            <div class="pilar-section-header">
+                <span class="pilar-section-icon">🔧</span>
+                <h2 class="pilar-section-title">Herramientas</h2>
+            </div>
+            <div class="links-grid">
+                <a href="https://omipymes.uned.ac.cr/selfiedistrital/" target="_blank" class="link-card">
+                    <div class="link-card-icon">📍</div>
+                    <div class="link-card-content">
+                        <h4>Selfie Distrital</h4>
+                        <p>Conoce el perfil empresarial de cualquier distrito de Costa Rica</p>
+                        <span class="link-card-badge">Web App</span>
+                    </div>
+                </a>
+                <a href="https://chatgpt.com/g/g-UKpcQkwMI-omipymes-uned-asistente-virtual-territorial-cr" target="_blank" class="link-card">
+                    <div class="link-card-icon">🤖</div>
+                    <div class="link-card-content">
+                        <h4>Chatbot OBI</h4>
+                        <p>Asistente virtual especializado en consultas territoriales y empresariales de Costa Rica</p>
+                        <span class="link-card-badge">ChatGPT</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FORMACIÓN – Detalle ===== -->
+    <section class="pilar-detail-section formacion-detail" style="background: var(--color-gray-50);">
+        <div class="pilar-detail-content">
+            <div class="pilar-section-header">
+                <span class="pilar-section-icon">🎓</span>
+                <h2 class="pilar-section-title">Formación</h2>
+            </div>
+
+            <!-- Cursos y Talleres -->
+            <div class="pilar-sub-section">
+                <h3 class="pilar-sub-title">Cursos y Talleres</h3>
+                <div class="links-grid">
+                    <a href="https://www.kolau.es/costarica" target="_blank" class="link-card">
+                        <div class="link-card-icon">💻</div>
+                        <div class="link-card-content">
+                            <h4>Tu sitio web en minutos (y gratis) con IA</h4>
+                            <p>Aprende a crear tu sitio web de forma rápida y gratuita utilizando inteligencia artificial</p>
+                            <span class="link-card-badge">Curso</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Toolkits Empresariales -->
+            <div class="pilar-sub-section">
+                <h3 class="pilar-sub-title">Toolkits Empresariales</h3>
+                <div class="links-grid">
+                    <a href="https://new.express.adobe.com/webpage/Jq08Z5Mcwba3U" target="_blank" class="link-card">
+                        <div class="link-card-icon">🤖</div>
+                        <div class="link-card-content">
+                            <h4>GPTs Especializados</h4>
+                            <p>Colección de GPTs especializados para el sector MIPYME</p>
+                            <span class="link-card-badge">Recurso Digital</span>
+                        </div>
+                    </a>
+                    <a href="https://new.express.adobe.com/webpage/3EUMKNup1C0w7" target="_blank" class="link-card">
+                        <div class="link-card-icon">📦</div>
+                        <div class="link-card-content">
+                            <h4>Recursos y Productos Digitales para Pymes en CR</h4>
+                            <p>Guía de recursos y productos digitales disponibles para pymes costarricenses</p>
+                            <span class="link-card-badge">Recurso Digital</span>
+                        </div>
+                    </a>
+                    <a href="https://new.express.adobe.com/webpage/jOEDPKYxrzkdc" target="_blank" class="link-card">
+                        <div class="link-card-icon">📋</div>
+                        <div class="link-card-content">
+                            <h4>Normas Básicas para el uso de los GPTs OMIPYME</h4>
+                            <p>Lineamientos y buenas prácticas para el uso de los GPTs desarrollados por OMiPYME</p>
+                            <span class="link-card-badge">Guía</span>
+                        </div>
+                    </a>
+                    <a href="https://new.express.adobe.com/webpage/p9qFvoxlR2zBc" target="_blank" class="link-card">
+                        <div class="link-card-icon">🔍</div>
+                        <div class="link-card-content">
+                            <h4>¿Cómo seleccionar una IA para Pymes?</h4>
+                            <p>Guía práctica para elegir la herramienta de inteligencia artificial más adecuada para su empresa</p>
+                            <span class="link-card-badge">Guía</span>
+                        </div>
+                    </a>
+                    <a href="https://new.express.adobe.com/webpage/3BzKtgx4dbHRe" target="_blank" class="link-card">
+                        <div class="link-card-icon">🚀</div>
+                        <div class="link-card-content">
+                            <h4>Guía Básica para emprender en Costa Rica</h4>
+                            <p>Todo lo que necesitas saber para iniciar tu emprendimiento en Costa Rica</p>
+                            <span class="link-card-badge">Guía</span>
+                        </div>
+                    </a>
+                    <a href="https://new.express.adobe.com/webpage/PcuGICQRHEYLN" target="_blank" class="link-card">
+                        <div class="link-card-icon">⚡</div>
+                        <div class="link-card-content">
+                            <h4>Guía rápida de 3 Herramientas gratuitas para emprendedores</h4>
+                            <p>Las 3 herramientas digitales gratuitas más útiles para personas emprendedoras</p>
+                            <span class="link-card-badge">Guía</span>
+                        </div>
+                    </a>
+                    <a href="https://new.express.adobe.com/webpage/igzpBEoQyKAx2" target="_blank" class="link-card">
+                        <div class="link-card-icon">🖼️</div>
+                        <div class="link-card-content">
+                            <h4>Recursos Gratuitos de Imágenes para personas emprendedoras</h4>
+                            <p>Fuentes de imágenes gratuitas y de calidad para usar en tu negocio</p>
+                            <span class="link-card-badge">Recursos</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Podcast -->
+            <div class="pilar-sub-section">
+                <h3 class="pilar-sub-title">Podcast</h3>
+                <div class="links-grid">
+                    <a href="https://open.spotify.com/show/7g0xrpWR72qma3Z7DyK2t3" target="_blank" class="link-card">
+                        <div class="link-card-icon">🎵</div>
+                        <div class="link-card-content">
+                            <h4>Podcast OMiPYME en Spotify</h4>
+                            <p>Escucha nuestros episodios sobre emprendimiento y sector MIPYME en Costa Rica</p>
+                            <span class="link-card-badge">Spotify</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INVESTIGACIÓN – Detalle ===== -->
+    <section class="pilar-detail-section investigacion-detail" style="background: white;">
+        <div class="pilar-detail-content">
+            <div class="pilar-section-header">
+                <span class="pilar-section-icon">🔬</span>
+                <h2 class="pilar-section-title">Investigación</h2>
+            </div>
+            <div class="pending-box">
+                <div class="pending-icon">🔬</div>
+                <h3>Contenido en preparación</h3>
+                <p>Los enlaces y recursos de investigación estarán disponibles próximamente. Nuestro equipo investigador se encuentra preparando el contenido.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OBSERVATORIO – Detalle ===== -->
+    <section class="pilar-detail-section observatorio-detail" style="background: var(--color-gray-50);">
+        <div class="pilar-detail-content">
+            <div class="pilar-section-header">
+                <span class="pilar-section-icon">📊</span>
+                <h2 class="pilar-section-title">Observatorio</h2>
+            </div>
+
+            <!-- Estadísticas por cantón -->
+            <div class="pilar-sub-section">
+                <h3 class="pilar-sub-title">Estadísticas por Cantón</h3>
+                <div class="links-grid">
+                    <a href="https://omipymes.uned.ac.cr/selfiedistrital/" target="_blank" class="link-card">
+                        <div class="link-card-icon">📍</div>
+                        <div class="link-card-content">
+                            <h4>Selfie Distrital</h4>
+                            <p>Estadísticas detalladas del sector empresarial por cantón y distrito de Costa Rica</p>
+                            <span class="link-card-badge">Estadísticas</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Encuestas y estudios (solo mención) -->
+            <div class="pilar-sub-section">
+                <h3 class="pilar-sub-title">Encuestas y Estudios <span style="font-size:0.8rem; color:#9CA3AF; font-weight:400;">(solo para conocimiento, no activas actualmente)</span></h3>
+                <div class="links-grid">
+                    <div class="link-card mention-only">
+                        <div class="link-card-icon">📋</div>
+                        <div class="link-card-content">
+                            <h4>Microestudio Nacional sobre Seguridad y Datos</h4>
+                            <p>Estudio sobre prácticas de seguridad y manejo de datos en el sector MIPYME</p>
+                            <span class="link-card-badge inactive-badge">No disponible actualmente</span>
+                        </div>
+                    </div>
+                    <div class="link-card mention-only">
+                        <div class="link-card-icon">📈</div>
+                        <div class="link-card-content">
+                            <h4>Encuesta Nacional sobre Perspectivas Económicas 2025-2026</h4>
+                            <p>Perspectivas y expectativas económicas del sector empresarial para 2025 y 2026</p>
+                            <span class="link-card-badge inactive-badge">No disponible actualmente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapas Georreferenciados -->
+            <div class="pilar-sub-section">
+                <h3 class="pilar-sub-title">Mapas Georreferenciados</h3>
+                <div class="links-grid">
+                    <a href="https://arcg.is/1eCqab" target="_blank" class="link-card">
+                        <div class="link-card-icon">🗺️</div>
+                        <div class="link-card-content">
+                            <h4>Parque Empresarial MiPYMES CR</h4>
+                            <p>Mapa interactivo de empresas y zonas empresariales de Costa Rica</p>
+                            <span class="link-card-badge">ArcGIS</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sistema de monitoreo PowerBI -->
+            <div class="pilar-sub-section">
+                <h3 class="pilar-sub-title">Sistema de Monitoreo y Visualización de Datos</h3>
+                <div class="links-grid">
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMmY5ZDc1YzgtNzYzYi00MThiLThlYjAtYmIyYTk1MjFjMTRjIiwidCI6ImU3OTg0Y2FjLTI1NDMtNGY4OC04Zjk3LTk1MjQzMzVlNmJjNCIsImMiOjR9" target="_blank" class="link-card">
+                        <div class="link-card-icon">📊</div>
+                        <div class="link-card-content">
+                            <h4>Dashboard Power BI</h4>
+                            <p>Sistema de monitoreo y visualización de datos con indicadores clave del sector MIPYME</p>
+                            <span class="link-card-badge">Power BI</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ECOSISTEMA – Detalle ===== -->
+    <section class="pilar-detail-section ecosistema-detail" style="background: white;">
+        <div class="pilar-detail-content">
+            <div class="pilar-section-header">
+                <span class="pilar-section-icon">🌿</span>
+                <h2 class="pilar-section-title">Ecosistema</h2>
+            </div>
+            <div class="pilar-sub-section">
+                <h3 class="pilar-sub-title">Comunidad PYME — Canales de Comunicación</h3>
+                <div class="social-links-grid">
+                    <a href="https://www.whatsapp.com/channel/0029Vb7LqrVH5JLusVGOmi2b" target="_blank" class="social-link-card">
+                        <span class="social-link-icon">💬</span> Canal WhatsApp
+                    </a>
+                    <a href="https://www.facebook.com/MIPYMESObservatorio" target="_blank" class="social-link-card">
+                        <span class="social-link-icon">📘</span> Facebook
+                    </a>
+                    <a href="https://www.instagram.com/omipyme_uned/?hl=es-la" target="_blank" class="social-link-card">
+                        <span class="social-link-icon">📷</span> Instagram
+                    </a>
+                    <a href="https://www.linkedin.com/in/omipyme-uned-costa-rica-457b2638a" target="_blank" class="social-link-card">
+                        <span class="social-link-icon">💼</span> LinkedIn
+                    </a>
+                    <a href="https://x.com/OmipymeR79825" target="_blank" class="social-link-card">
+                        <span class="social-link-icon">🐦</span> X (Twitter)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTOS Y RECURSOS DIGITALES ===== -->
     <section class="productos-section">
         <div class="productos-content">
-            <h2 class="section-title">🚀 Productos Digitales y Recursos</h2>
-            <p style="text-align: center; max-width: 900px; margin: 0 auto 3rem; color: var(--color-gray-800); font-size: 1.1rem;">
+            <h2 class="section-title">🚀 Productos y Recursos Digitales</h2>
+            <p style="text-align:center; max-width:900px; margin:0 auto 3rem; color:var(--color-gray-800); font-size:1.05rem;">
                 Explora nuestras herramientas interactivas, mapas georreferenciados, sistemas de análisis y asistentes virtuales para el sector MIPYME
             </p>
 
             <!-- Asistentes Virtuales con IA -->
             <div class="productos-categoria">
-                <h3 class="categoria-title">
+                <h3 class="categoria-title celeste">
                     <span class="categoria-icon">🤖</span>
                     Asistentes Virtuales con Inteligencia Artificial
                 </h3>
                 <div class="productos-grid">
-                    <a href="https://chatgpt.com/g/g-UKpcQkwMI-omipymes-uned-asistente-virtual-territorial-cr" target="_blank" class="producto-card producto-destacado">
+                    <a href="https://chatgpt.com/g/g-UKpcQkwMI-omipymes-uned-asistente-virtual-territorial-cr" target="_blank" class="producto-card celeste-card">
                         <div class="producto-icon">💬</div>
                         <h4 class="producto-title">OMiPYMES Asistente Virtual</h4>
                         <p class="producto-description">Asistente IA especializado en consultas territoriales de Costa Rica</p>
                         <span class="producto-badge">ChatGPT</span>
-                        <span class="producto-badge-new">IA</span>
+                        <span class="producto-badge producto-badge-new">IA</span>
                     </a>
-
-                    <a href="https://chatgpt.com/g/g-uCgjrweCI-omipymes-uned-analista-territorial-costarricense" target="_blank" class="producto-card producto-destacado">
+                    <a href="https://chatgpt.com/g/g-uCgjrweCI-omipymes-uned-analista-territorial-costarricense" target="_blank" class="producto-card celeste-card">
                         <div class="producto-icon">🔍</div>
                         <h4 class="producto-title">OMiPYMES Analista Territorial</h4>
                         <p class="producto-description">Analista IA para evaluación y diagnóstico territorial costarricense</p>
                         <span class="producto-badge">ChatGPT</span>
-                        <span class="producto-badge-new">IA</span>
+                        <span class="producto-badge producto-badge-new">IA</span>
                     </a>
                 </div>
             </div>
 
             <!-- Productos Digitales y Recursos -->
             <div class="productos-categoria">
-                <h3 class="categoria-title">
-                    <span class="categoria-icon">🗺️</span>
+                <h3 class="categoria-title celeste">
+                    <span class="categoria-icon">📚</span>
                     Productos Digitales y Recursos
                 </h3>
                 <div class="productos-grid">
-                    <a href="https://arcg.is/CjWT5" target="_blank" class="producto-card">
+                    <a href="https://new.express.adobe.com/webpage/3EUMKNup1C0w7" target="_blank" class="producto-card celeste-card">
+                        <div class="producto-icon">📦</div>
+                        <h4 class="producto-title">Recursos y Productos Digitales para Pymes en CR</h4>
+                        <p class="producto-description">Catálogo de recursos y productos digitales para el sector MIPYME costarricense</p>
+                        <span class="producto-badge">Adobe Express</span>
+                    </a>
+                    <a href="https://new.express.adobe.com/webpage/Jq08Z5Mcwba3U" target="_blank" class="producto-card celeste-card">
+                        <div class="producto-icon">🤖</div>
+                        <h4 class="producto-title">GPTs Especializados</h4>
+                        <p class="producto-description">Colección de GPTs especializados para consultas y análisis del sector empresarial</p>
+                        <span class="producto-badge">Adobe Express</span>
+                    </a>
+                    <a href="https://arcg.is/CjWT5" target="_blank" class="producto-card celeste-card">
                         <div class="producto-icon">📊</div>
                         <h4 class="producto-title">Perspectivas Económicas MiPymes CR 2023</h4>
                         <p class="producto-description">Análisis económico y estadísticas del sector MIPYME en Costa Rica</p>
                         <span class="producto-badge">ArcGIS</span>
                     </a>
-
-                    <a href="https://arcg.is/1eCqab" target="_blank" class="producto-card">
+                    <a href="https://arcg.is/1eCqab" target="_blank" class="producto-card celeste-card">
                         <div class="producto-icon">🏭</div>
                         <h4 class="producto-title">Parque Empresarial MiPYMES CR</h4>
                         <p class="producto-description">Mapa interactivo de empresas y zonas empresariales del país</p>
                         <span class="producto-badge">ArcGIS</span>
                     </a>
-
-                    <a href="https://arcg.is/9Taf5" target="_blank" class="producto-card">
-                        <div class="producto-icon">📍</div>
-                        <h4 class="producto-title">Proyecto Guápiles Patentes Municipales</h4>
-                        <p class="producto-description">Visualización de patentes comerciales en Guápiles</p>
-                        <span class="producto-badge">ArcGIS</span>
-                    </a>
                 </div>
             </div>
 
-            <!-- Herramientas de Análisis -->
+            <!-- Herramientas de Análisis y Monitoreo -->
             <div class="productos-categoria">
-                <h3 class="categoria-title">
+                <h3 class="categoria-title celeste">
                     <span class="categoria-icon">📈</span>
                     Herramientas de Análisis y Monitoreo
                 </h3>
                 <div class="productos-grid">
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMmY5ZDc1YzgtNzYzYi00MThiLThlYjAtYmIyYTk1MjFjMTRjIiwidCI6ImU3OTg0Y2FjLTI1NDMtNGY4OC04Zjk3LTk1MjQzMzVlNmJjNCIsImMiOjR9" target="_blank" class="producto-card">
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMmY5ZDc1YzgtNzYzYi00MThiLThlYjAtYmIyYTk1MjFjMTRjIiwidCI6ImU3OTg0Y2FjLTI1NDMtNGY4OC04Zjk3LTk1MjQzMzVlNmJjNCIsImMiOjR9" target="_blank" class="producto-card celeste-card">
                         <div class="producto-icon">📊</div>
                         <h4 class="producto-title">Sistema de Monitoreo con PowerBI</h4>
                         <p class="producto-description">Dashboard en tiempo real con indicadores clave del sector MIPYME</p>
                         <span class="producto-badge">Power BI</span>
                     </a>
-
-                    <a href="https://omipymes.uned.ac.cr/selfiedistrital/" target="_blank" class="producto-card">
+                    <a href="https://omipymes.uned.ac.cr/selfiedistrital/" target="_blank" class="producto-card celeste-card">
                         <div class="producto-icon">📸</div>
                         <h4 class="producto-title">Selfie Distrital</h4>
                         <p class="producto-description">Herramienta interactiva para conocer el perfil empresarial por distrito</p>
@@ -892,21 +669,20 @@
                 </div>
             </div>
 
-            <!-- RED UNED EMPRENDE -->
+            <!-- Red UNED Emprende -->
             <div class="productos-categoria">
-                <h3 class="categoria-title">
+                <h3 class="categoria-title celeste">
                     <span class="categoria-icon">🎯</span>
-                    RED UNED EMPRENDE
+                    Red UNED Emprende
                 </h3>
                 <div class="productos-grid">
-                    <a href="https://arcg.is/1mDmLi1" target="_blank" class="producto-card">
+                    <a href="https://arcg.is/1mDmLi1" target="_blank" class="producto-card celeste-card">
                         <div class="producto-icon">📋</div>
                         <h4 class="producto-title">Encuesta RED UNED EMPRENDE</h4>
                         <p class="producto-description">Participa en nuestra encuesta para el fortalecimiento empresarial</p>
                         <span class="producto-badge">ArcGIS Survey</span>
                     </a>
-
-                    <a href="https://arcg.is/0L4GmX" target="_blank" class="producto-card">
+                    <a href="https://arcg.is/0L4GmX" target="_blank" class="producto-card celeste-card">
                         <div class="producto-icon">📅</div>
                         <h4 class="producto-title">Calendario de Actividades</h4>
                         <p class="producto-description">Eventos, talleres y capacitaciones de la RED UNED EMPRENDE</p>
@@ -917,210 +693,57 @@
         </div>
     </section>
 
-    <!-- Arquitectura Section -->
-    <section class="arquitectura-section">
-        <div class="arquitectura-content">
-            <h2 class="section-title">🏗️ Arquitectura Técnica Moderna</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--color-gray-800);">
-                Monorepo híbrido con las mejores tecnologías para cada capa del sistema
-            </p>
-
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <div class="tech-icon">⚛️</div>
-                    <h3 class="tech-title">Frontend</h3>
-                    <p class="tech-description">Next.js 14 + React 18 + TypeScript</p>
-                    <span class="tech-badge">SSR/SSG</span>
-                    <span class="tech-badge">Tailwind CSS</span>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">📝</div>
-                    <h3 class="tech-title">CMS</h3>
-                    <p class="tech-description">WordPress Headless 6.4</p>
-                    <span class="tech-badge">REST API</span>
-                    <span class="tech-badge">Custom Theme</span>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">🐍</div>
-                    <h3 class="tech-title">API Backend</h3>
-                    <p class="tech-description">Python FastAPI + PostgreSQL</p>
-                    <span class="tech-badge">REST</span>
-                    <span class="tech-badge">Async</span>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">📊</div>
-                    <h3 class="tech-title">Dashboards</h3>
-                    <p class="tech-description">R Shiny + Tidyverse</p>
-                    <span class="tech-badge">Interactive</span>
-                    <span class="tech-badge">Real-time</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Como Funciona Section -->
-    <section class="como-funciona-section">
-        <div class="como-funciona-content">
-            <h2 class="section-title">🚀 ¿Cómo Funciona?</h2>
-
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Clona el Repositorio</h3>
-                        <p>Obtén el código fuente completo desde GitHub</p>
-                        <div class="step-code">git clone https://github.com/agmelendez/webomipyme.git
-cd webomipyme</div>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Instala Dependencias</h3>
-                        <p>Configura el entorno de desarrollo para cada componente</p>
-                        <div class="step-code"># Frontend
-cd frontend && npm install
-
-# API
-cd api && pip install -r requirements.txt
-
-# Dashboards
-cd dashboards && Rscript setup.R</div>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Configura Variables de Entorno</h3>
-                        <p>Crea archivos .env con las credenciales necesarias</p>
-                        <div class="step-code"># frontend/.env.local
-NEXT_PUBLIC_API_URL=http://localhost:8000
-NEXT_PUBLIC_WP_URL=http://localhost:8080
-
-# api/.env
-DATABASE_URL=postgresql://user:pass@localhost/omipyme</div>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Inicia los Servicios</h3>
-                        <p>Levanta todos los componentes con Docker Compose</p>
-                        <div class="step-code">docker-compose up -d
-
-# O manualmente cada servicio:
-# Frontend:   npm run dev    (http://localhost:3000)
-# API:        uvicorn app.main:app --reload
-# WordPress:  docker-compose up wordpress
-# Dashboards: Rscript app.R</div>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>Explora la Plataforma</h3>
-                        <p>Navega por los 5 pilares y prueba las funcionalidades</p>
-                        <div class="badges">
-                            <span class="badge">Frontend: localhost:3000</span>
-                            <span class="badge">API Docs: localhost:8000/docs</span>
-                            <span class="badge">WordPress: localhost:8080</span>
-                            <span class="badge">Shiny: localhost:3838</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>¿Listo para Contribuir?</h2>
-            <p>Este proyecto es de código abierto y está en constante evolución. Únete a nosotros para fortalecer el ecosistema MIPYME de Costa Rica.</p>
-
-            <div class="cta-buttons">
-                <a href="https://github.com/agmelendez/webomipyme" target="_blank" class="btn btn-primary">
-                    📦 Ver Código en GitHub
-                </a>
-                <a href="https://github.com/agmelendez/webomipyme/blob/main/CONTRIBUTING.md" target="_blank" class="btn btn-secondary">
-                    🤝 Guía de Contribución
-                </a>
-                <a href="https://github.com/agmelendez/webomipyme/blob/main/README.md" target="_blank" class="btn btn-secondary">
-                    📖 Documentación
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>OMiPYME</h3>
                 <p>Observatorio de Micro, Pequeñas y Medianas Empresas</p>
-                <p style="margin-top: 1rem;">Universidad Estatal a Distancia (UNED)<br>Costa Rica</p>
+                <p style="margin-top:1rem;">Universidad Estatal a Distancia (UNED)<br>Costa Rica</p>
             </div>
-
             <div class="footer-section">
-                <h3>Recursos</h3>
+                <h3>Pilares</h3>
                 <ul>
-                    <li><a href="https://github.com/agmelendez/webomipyme/blob/main/README.md" target="_blank">Documentación</a></li>
-                    <li><a href="https://github.com/agmelendez/webomipyme/blob/main/QUICK_START.md" target="_blank">Guía Rápida</a></li>
-                    <li><a href="https://github.com/agmelendez/webomipyme/blob/main/STRUCTURE.md" target="_blank">Estructura del Proyecto</a></li>
-                    <li><a href="https://github.com/agmelendez/webomipyme/blob/main/CONTRIBUTING.md" target="_blank">Cómo Contribuir</a></li>
+                    <li>🔧 Herramientas</li>
+                    <li>🎓 Formación</li>
+                    <li>🔬 Investigación</li>
+                    <li>📊 Observatorio</li>
+                    <li>🌿 Ecosistema</li>
                 </ul>
             </div>
-
             <div class="footer-section">
-                <h3>Tecnologías</h3>
+                <h3>Redes Sociales</h3>
                 <ul>
-                    <li><a href="https://nextjs.org" target="_blank">Next.js</a></li>
-                    <li><a href="https://fastapi.tiangolo.com" target="_blank">FastAPI</a></li>
-                    <li><a href="https://wordpress.org" target="_blank">WordPress</a></li>
-                    <li><a href="https://shiny.rstudio.com" target="_blank">R Shiny</a></li>
+                    <li><a href="https://www.facebook.com/MIPYMESObservatorio" target="_blank">📘 Facebook</a></li>
+                    <li><a href="https://www.instagram.com/omipyme_uned/?hl=es-la" target="_blank">📷 Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/in/omipyme-uned-costa-rica-457b2638a" target="_blank">💼 LinkedIn</a></li>
+                    <li><a href="https://x.com/OmipymeR79825" target="_blank">🐦 X (Twitter)</a></li>
+                    <li><a href="https://www.whatsapp.com/channel/0029Vb7LqrVH5JLusVGOmi2b" target="_blank">💬 Canal WhatsApp</a></li>
                 </ul>
             </div>
-
             <div class="footer-section">
                 <h3>Contacto</h3>
                 <ul>
                     <li>📧 observatorio@uned.ac.cr</li>
-                    <li>📞 +506 2527-2000</li>
                     <li>🌐 <a href="https://omipyme.uned.ac.cr" target="_blank">omipyme.uned.ac.cr</a></li>
-                    <li>💬 <a href="https://github.com/agmelendez/webomipyme/issues" target="_blank">GitHub Issues</a></li>
                 </ul>
             </div>
         </div>
-
         <div class="footer-bottom">
-            <p>© 2024 Universidad Estatal a Distancia (UNED) - Todos los derechos reservados</p>
-            <p style="margin-top: 0.5rem;">Desarrollado con ❤️ para el fortalecimiento del sector MIPYME de Costa Rica</p>
+            <p>© 2025 Universidad Estatal a Distancia (UNED) — Todos los derechos reservados</p>
+            <p style="margin-top:0.5rem;">Desarrollado para el fortalecimiento del sector MIPYME de Costa Rica</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scroll para navegación
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Animación de entrada para elementos visibles
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1130,17 +753,8 @@ DATABASE_URL=postgresql://user:pass@localhost/omipyme</div>
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.pilar-card, .tech-card, .step').forEach(el => {
+        document.querySelectorAll('.pilar-card, .link-card, .producto-card, .social-link-card').forEach(el => {
             observer.observe(el);
-        });
-
-        // Efecto parallax suave en hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
         });
     </script>
 </body>
