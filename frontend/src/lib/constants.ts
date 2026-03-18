@@ -255,7 +255,7 @@ export const REDES_SOCIALES = {
 // ============================================
 
 export const CONTACTO = {
-  email: 'observatorio@uned.ac.cr',
+  email: 'omipymes@uned.ac.cr',
   telefono: '+506 2527-2000',
   direccion: 'Mercedes de Montes de Oca, San José, Costa Rica',
   horario: 'Lunes a Viernes, 8:00 AM - 5:00 PM',
