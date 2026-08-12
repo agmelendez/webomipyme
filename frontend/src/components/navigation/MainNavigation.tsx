@@ -107,15 +107,15 @@ export default function MainNavigation() {
                 className="flex items-center space-x-3 hover:opacity-90 transition-opacity"
                 aria-label={A11Y_LABELS.logo}
               >
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                    <span className="text-uned-blue font-bold text-xl">OM</span>
-                  </div>
-                  <div className="ml-3">
+                <div className="flex items-center gap-3">
+                  <img src="/logos/logo uned blanco .png" alt="UNED - Universidad Estatal a Distancia" className="h-11 w-auto" />
+                  <div className="w-px h-9 bg-white/30" />
+                  <img src="/logos/logo omipyme blanco.png" alt="OMiPYME" className="h-11 w-auto" />
+                  <div className="ml-1">
                     <h1 className="text-xl font-heading font-bold text-white leading-tight">
                       OMiPYME
                     </h1>
-                    <p className="text-xs text-white/80">UNED Costa Rica</p>
+                    <p className="text-xs text-white/80">Observatorio MIPYME - UNED</p>
                   </div>
                 </div>
               </Link>

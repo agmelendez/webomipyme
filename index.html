@@ -16,12 +16,16 @@
         }
 
         :root {
-            /* Colores Institucionales */
-            --color-primary: #003366;
+            /* Colores Institucionales UNED */
+            --color-primary: #003B71;
+            --color-primary-light: #00508F;
+            --color-primary-dark: #002A52;
             --color-secondary: #006633;
+            --color-uned-blue: #003B71;
+            --color-uned-gold: #E8A824;
 
             /* Colores por Pilar */
-            --color-observatorio: #003366;
+            --color-observatorio: #003B71;
             --color-herramientas: #FF6B35;
             --color-investigacion: #006633;
             --color-formacion: #7B2CBF;
@@ -53,16 +57,35 @@
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, var(--color-primary) 0%, #004d99 100%);
+            background: var(--color-uned-blue);
             color: white;
-            padding: 2rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-top-bar {
+            background: var(--color-primary-dark);
+            padding: 0.4rem 2rem;
+            font-size: 0.8rem;
+            text-align: right;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .header-top-bar a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .header-top-bar a:hover {
+            color: var(--color-uned-gold);
         }
 
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -73,21 +96,19 @@
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
-        .logo {
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--color-primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        .logo-img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-separator {
+            width: 2px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .logo-text h1 {
@@ -96,8 +117,8 @@
         }
 
         .logo-text p {
-            font-size: 0.875rem;
-            opacity: 0.9;
+            font-size: 0.8rem;
+            opacity: 0.85;
         }
 
         .github-link {
@@ -118,7 +139,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            background: linear-gradient(135deg, var(--color-uned-blue) 0%, var(--color-primary-light) 50%, var(--color-secondary) 100%);
             color: white;
             padding: 4rem 2rem;
             text-align: center;
@@ -432,9 +453,38 @@
 
         /* Footer */
         .footer {
-            background: var(--color-gray-900);
+            background: var(--color-primary-dark);
             color: white;
-            padding: 3rem 2rem 1rem;
+            padding: 0;
+        }
+
+        .footer-logos {
+            background: var(--color-uned-blue);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--color-uned-gold);
+        }
+
+        .footer-logos-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .footer-logo-separator {
+            width: 2px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .footer-content {
@@ -443,12 +493,13 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-bottom: 2rem;
+            padding: 3rem 2rem 2rem;
         }
 
         .footer-section h3 {
             margin-bottom: 1rem;
-            color: white;
+            color: var(--color-uned-gold);
+            font-size: 1.1rem;
         }
 
         .footer-section ul {
@@ -466,16 +517,17 @@
         }
 
         .footer-section a:hover {
-            color: white;
+            color: var(--color-uned-gold);
         }
 
         .footer-bottom {
             max-width: 1200px;
             margin: 0 auto;
-            padding-top: 2rem;
+            padding: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
         }
 
         /* Animations */
@@ -519,6 +571,23 @@
             .header-content {
                 justify-content: center;
                 text-align: center;
+            }
+
+            .logo-section {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .logo-separator {
+                display: none;
+            }
+
+            .footer-logo-img {
+                height: 38px;
             }
         }
 
@@ -698,16 +767,22 @@
 <body>
     <!-- Header -->
     <header class="header">
+        <div class="header-top-bar">
+            <a href="https://uned.ac.cr" target="_blank">UNED Costa Rica</a>
+            <a href="https://new.express.adobe.com/webpage/jOEDPKYxrzkdc" target="_blank">Normativa de Uso GPTs</a>
+        </div>
         <div class="header-content">
             <div class="logo-section">
-                <div class="logo">🎯</div>
+                <img src="logos/logo uned blanco .png" alt="UNED - Universidad Estatal a Distancia" class="logo-img">
+                <div class="logo-separator"></div>
+                <img src="logos/logo omipyme blanco.png" alt="OMiPYME - Observatorio MIPYME" class="logo-img">
                 <div class="logo-text">
                     <h1>OMiPYME</h1>
-                    <p>UNED Costa Rica</p>
+                    <p>Observatorio MIPYME - UNED</p>
                 </div>
             </div>
             <a href="https://github.com/agmelendez/webomipyme" target="_blank" class="github-link">
-                📦 Ver en GitHub
+                Ver en GitHub
             </a>
         </div>
     </header>
@@ -1102,47 +1177,52 @@ DATABASE_URL=postgresql://user:pass@localhost/omipyme</div>
 
     <!-- Footer -->
     <footer class="footer">
+        <div class="footer-logos">
+            <div class="footer-logos-inner">
+                <img src="logos/logo uned blanco .png" alt="UNED - Universidad Estatal a Distancia" class="footer-logo-img">
+                <div class="footer-logo-separator"></div>
+                <img src="logos/logo omipyme blanco.png" alt="OMiPYME - Observatorio MIPYME" class="footer-logo-img">
+            </div>
+        </div>
+
         <div class="footer-content">
+            <div class="footer-section">
+                <h3>UNED</h3>
+                <p>Universidad Estatal a Distancia</p>
+                <p style="margin-top: 0.5rem; color: rgba(255,255,255,0.7);">Institución de educación superior pública de Costa Rica</p>
+                <p style="margin-top: 0.5rem;"><a href="https://uned.ac.cr" target="_blank">uned.ac.cr</a></p>
+            </div>
+
             <div class="footer-section">
                 <h3>OMiPYME</h3>
                 <p>Observatorio de Micro, Pequeñas y Medianas Empresas</p>
-                <p style="margin-top: 1rem;">Universidad Estatal a Distancia (UNED)<br>Costa Rica</p>
+                <p style="margin-top: 0.5rem; color: rgba(255,255,255,0.7);">Herramientas de Inteligencia Artificial para el Ecosistema PYME y Gobiernos Locales de Costa Rica</p>
             </div>
 
             <div class="footer-section">
                 <h3>Recursos</h3>
                 <ul>
-                    <li><a href="https://github.com/agmelendez/webomipyme/blob/main/README.md" target="_blank">Documentación</a></li>
-                    <li><a href="https://github.com/agmelendez/webomipyme/blob/main/QUICK_START.md" target="_blank">Guía Rápida</a></li>
-                    <li><a href="https://github.com/agmelendez/webomipyme/blob/main/STRUCTURE.md" target="_blank">Estructura del Proyecto</a></li>
-                    <li><a href="https://github.com/agmelendez/webomipyme/blob/main/CONTRIBUTING.md" target="_blank">Cómo Contribuir</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Tecnologías</h3>
-                <ul>
-                    <li><a href="https://nextjs.org" target="_blank">Next.js</a></li>
-                    <li><a href="https://fastapi.tiangolo.com" target="_blank">FastAPI</a></li>
-                    <li><a href="https://wordpress.org" target="_blank">WordPress</a></li>
-                    <li><a href="https://shiny.rstudio.com" target="_blank">R Shiny</a></li>
+                    <li><a href="https://new.express.adobe.com/webpage/jOEDPKYxrzkdc" target="_blank">Normativa de Uso GPTs</a></li>
+                    <li><a href="https://new.express.adobe.com/webpage/Jq08Z5Mcwba3U" target="_blank">GPTs Especializados</a></li>
+                    <li><a href="https://github.com/agmelendez/webomipyme" target="_blank">Repositorio GitHub</a></li>
+                    <li><a href="https://github.com/agmelendez/webomipyme/blob/main/CONTRIBUTING.md" target="_blank">Contribuir</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h3>Contacto</h3>
                 <ul>
-                    <li>📧 observatorio@uned.ac.cr</li>
-                    <li>📞 +506 2527-2000</li>
-                    <li>🌐 <a href="https://omipyme.uned.ac.cr" target="_blank">omipyme.uned.ac.cr</a></li>
-                    <li>💬 <a href="https://github.com/agmelendez/webomipyme/issues" target="_blank">GitHub Issues</a></li>
+                    <li>observatorio@uned.ac.cr</li>
+                    <li>+506 2527-2000</li>
+                    <li><a href="https://omipyme.uned.ac.cr" target="_blank">omipyme.uned.ac.cr</a></li>
+                    <li><a href="https://github.com/agmelendez/webomipyme/issues" target="_blank">GitHub Issues</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>© 2024 Universidad Estatal a Distancia (UNED) - Todos los derechos reservados</p>
-            <p style="margin-top: 0.5rem;">Desarrollado con ❤️ para el fortalecimiento del sector MIPYME de Costa Rica</p>
+            <p>&copy; 2024 - 2025 Universidad Estatal a Distancia (UNED) - Todos los derechos reservados</p>
+            <p style="margin-top: 0.5rem;">OMiPYME - Observatorio de Micro, Pequeñas y Medianas Empresas</p>
         </div>
     </footer>
 

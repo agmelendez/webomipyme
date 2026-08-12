@@ -16,16 +16,21 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white section-padding">
       <div className="container-custom">
-        {/* Banner Institucional UNED - OBLIGATORIO */}
+        {/* Banner Institucional con Logos - UNED y OMiPYME */}
         <div className="mb-8 pb-8 border-b border-gray-800">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-center md:text-left">
-              <p className="text-lg font-heading font-semibold mb-2">
-                Universidad Estatal a Distancia
-              </p>
-              <p className="text-gray-400">
-                Observatorio de Micro, Pequeñas y Medianas Empresas
-              </p>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4 flex-wrap justify-center md:justify-start">
+              <img src="/logos/logo uned blanco .png" alt="UNED - Universidad Estatal a Distancia" className="h-12 w-auto" />
+              <div className="w-px h-10 bg-gray-600" />
+              <img src="/logos/logo omipyme blanco.png" alt="OMiPYME" className="h-12 w-auto" />
+              <div className="ml-2 text-center md:text-left">
+                <p className="text-lg font-heading font-semibold">
+                  Universidad Estatal a Distancia
+                </p>
+                <p className="text-gray-400 text-sm">
+                  Observatorio de Micro, Pequeñas y Medianas Empresas
+                </p>
+              </div>
             </div>
             <a
               href={LINKS_INSTITUCIONALES.UNED}
@@ -33,7 +38,6 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-uned-blue hover:bg-uned-blue/80 rounded-lg transition-colors font-semibold"
             >
-              <span className="mr-2">🏛️</span>
               Ir a www.uned.ac.cr
             </a>
           </div>

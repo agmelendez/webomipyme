@@ -10,13 +10,13 @@ module.exports = {
       colors: {
         // Colores Institucionales UNED
         'uned-blue': {
-          DEFAULT: '#003366',
+          DEFAULT: '#003B71',
           50: '#E6EBF0',
           100: '#CCD7E0',
           200: '#99AFC1',
           300: '#6687A2',
           400: '#335F83',
-          500: '#003366',
+          500: '#003B71',
           600: '#002952',
           700: '#001F3D',
           800: '#001429',
@@ -38,7 +38,7 @@ module.exports = {
 
         // Colores por Pilar (Modelo de Cinco Pilares)
         'pilar-observatorio': {
-          DEFAULT: '#003366',
+          DEFAULT: '#003B71',
           light: '#0055AA',
           dark: '#001A33',
           bg: '#E6EBF0',
@@ -174,12 +174,12 @@ module.exports = {
 
       backgroundImage: {
         // Gradientes por Pilar
-        'gradient-observatorio': 'linear-gradient(135deg, #003366 0%, #0055AA 100%)',
+        'gradient-observatorio': 'linear-gradient(135deg, #003B71 0%, #0055AA 100%)',
         'gradient-herramientas': 'linear-gradient(135deg, #FF6B35 0%, #FF8C5C 100%)',
         'gradient-investigacion': 'linear-gradient(135deg, #006633 0%, #009944 100%)',
         'gradient-formacion': 'linear-gradient(135deg, #7B2CBF 0%, #9D4EDD 100%)',
         'gradient-ecosistema': 'linear-gradient(135deg, #00A8A8 0%, #00D4D4 100%)',
-        'gradient-hero': 'linear-gradient(135deg, #003366 0%, #006633 100%)',
+        'gradient-hero': 'linear-gradient(135deg, #003B71 0%, #006633 100%)',
       },
 
       borderRadius: {
