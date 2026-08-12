@@ -463,6 +463,163 @@
             color: var(--color-gray-900);
         }
 
+        /* Informes Section */
+        .informes-section {
+            background: white;
+            padding: 5rem 2rem;
+        }
+
+        .informes-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .informes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .informe-card {
+            background: var(--color-gray-50);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .informe-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .informe-preview {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-bottom: 1px solid var(--color-gray-200);
+            background: var(--color-gray-100);
+        }
+
+        .informe-preview-fallback {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
+            border-bottom: 1px solid var(--color-gray-200);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .informe-preview-fallback .preview-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .informe-preview-fallback p {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+        }
+
+        .informe-info {
+            padding: 1.5rem;
+        }
+
+        .informe-tag {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .informe-title {
+            font-size: 1.15rem;
+            color: var(--color-gray-900);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+        }
+
+        .informe-meta {
+            color: var(--color-gray-600);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .informe-description {
+            color: var(--color-gray-800);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .informe-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 59, 113, 0.25);
+        }
+
+        .btn-view {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-view:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .informes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .informe-preview, .informe-preview-fallback {
+                height: 300px;
+            }
+        }
+
         /* Normativa Section */
         .normativa-section {
             background: white;
@@ -793,6 +950,7 @@
                 <a href="#pilares">Pilares</a>
                 <a href="#asistentes">Asistentes IA</a>
                 <a href="#recursos">Recursos</a>
+                <a href="#informes">Informes</a>
                 <a href="#contacto">Contacto</a>
             </nav>
         </div>
@@ -1022,6 +1180,47 @@
         </div>
     </section>
 
+    <!-- Informes Section -->
+    <section class="informes-section" id="informes">
+        <div class="informes-content">
+            <h2 class="section-title">Informes y Publicaciones</h2>
+            <p class="section-subtitle">Reportes especializados del Observatorio con análisis, tendencias y datos del sector MIPYME</p>
+
+            <div class="informes-grid">
+                <!-- Informe 1 -->
+                <div class="informe-card">
+                    <iframe
+                        class="informe-preview"
+                        src="Informes/Tendencias%20REVEC-BCCR-UJ%20OMIPYMEs%202026.pdf"
+                        title="Vista previa: Tendencias REVEC-BCCR-UJ OMIPYMEs 2026"
+                    ></iframe>
+                    <noscript>
+                        <div class="informe-preview-fallback">
+                            <div class="preview-icon">📄</div>
+                            <p>Vista previa no disponible</p>
+                        </div>
+                    </noscript>
+                    <div class="informe-info">
+                        <span class="informe-tag">Nuevo</span>
+                        <h3 class="informe-title">Tendencias REVEC-BCCR-UJ OMIPYMEs 2026</h3>
+                        <p class="informe-meta">PDF &middot; 13 páginas &middot; 1.6 MB</p>
+                        <p class="informe-description">Informe de tendencias del Registro de Variables Económicas (REVEC) del Banco Central de Costa Rica, en colaboración con la Universidad de Johannesburgo y el Observatorio OMiPYME.</p>
+                        <div class="informe-actions">
+                            <a href="Informes/Tendencias%20REVEC-BCCR-UJ%20OMIPYMEs%202026.pdf" download class="btn-download">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                Descargar PDF
+                            </a>
+                            <a href="Informes/Tendencias%20REVEC-BCCR-UJ%20OMIPYMEs%202026.pdf" target="_blank" class="btn-view">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                Ver completo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Normativa Section -->
     <section class="normativa-section">
         <div class="normativa-content">
@@ -1122,8 +1321,17 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.pilar-card, .producto-card').forEach(el => {
+        document.querySelectorAll('.pilar-card, .producto-card, .informe-card').forEach(el => {
             observer.observe(el);
+        });
+
+        document.querySelectorAll('.informe-preview').forEach(iframe => {
+            iframe.addEventListener('error', function() {
+                const fallback = document.createElement('div');
+                fallback.className = 'informe-preview-fallback';
+                fallback.innerHTML = '<div class="preview-icon">📄</div><p>Vista previa no disponible en este navegador.<br>Use los botones para ver o descargar el documento.</p>';
+                iframe.parentNode.replaceChild(fallback, iframe);
+            });
         });
     </script>
 </body>
