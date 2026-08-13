@@ -827,6 +827,105 @@
             font-size: 0.85rem;
         }
 
+        /* Ecosistema PYMES Section */
+        .ecosistema-section {
+            background: var(--color-gray-50);
+            padding: 5rem 2rem;
+        }
+
+        .ecosistema-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ecosistema-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .ecosistema-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .ecosistema-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .ecosistema-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: white;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .ecosistema-card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .ecosistema-card-title {
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+        }
+
+        .ecosistema-card-desc {
+            color: var(--color-gray-800);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .ecosistema-card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .ecosistema-card-btn:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 59, 113, 0.25);
+        }
+
+        @media (max-width: 1024px) {
+            .ecosistema-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .ecosistema-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -951,6 +1050,7 @@
                 <a href="#asistentes">Asistentes IA</a>
                 <a href="#recursos">Recursos</a>
                 <a href="#informes">Informes</a>
+                <a href="#ecosistema">Ecosistema</a>
                 <a href="#contacto">Contacto</a>
             </nav>
         </div>
@@ -1221,6 +1321,70 @@
         </div>
     </section>
 
+    <!-- Ecosistema PYMES Section -->
+    <section class="ecosistema-section" id="ecosistema">
+        <div class="ecosistema-content">
+            <h2 class="section-title">Ecosistema PYMES UNED</h2>
+            <p class="section-subtitle">Programas y proyectos de la UNED que trabajan por el fortalecimiento de las micro, pequeñas y medianas empresas</p>
+
+            <div class="ecosistema-grid">
+                <a href="https://inmpulsauned.com/" target="_blank" class="ecosistema-card">
+                    <img src="Vinculos/Impulsa.png" alt="INMPULSA UNED" class="ecosistema-card-img">
+                    <div class="ecosistema-card-body">
+                        <h3 class="ecosistema-card-title">INMPULSA UNED</h3>
+                        <p class="ecosistema-card-desc">Promueve emprendimiento, innovación y desarrollo territorial</p>
+                        <span class="ecosistema-card-btn">Ver más →</span>
+                    </div>
+                </a>
+
+                <a href="https://www.facebook.com/PDG.UNED.CR/?locale=es_LA" target="_blank" class="ecosistema-card">
+                    <img src="Vinculos/PDG-UNED.png" alt="Programa de Desarrollo Gerencial" class="ecosistema-card-img">
+                    <div class="ecosistema-card-body">
+                        <h3 class="ecosistema-card-title">Programa de Desarrollo Gerencial</h3>
+                        <p class="ecosistema-card-desc">Formación continua para estudiantes, académicos, empresarios</p>
+                        <span class="ecosistema-card-btn">Ver más →</span>
+                    </div>
+                </a>
+
+                <a href="https://uned.ac.cr/transparencia/informes-de-labores-2011/informe-labores-dependencias/vicerrectoria-academica/52-programa-de-desarrollo-gerencial" target="_blank" class="ecosistema-card">
+                    <img src="Vinculos/BancaDesarrollo.png" alt="Capacitación en Banca para el Desarrollo" class="ecosistema-card-img">
+                    <div class="ecosistema-card-body">
+                        <h3 class="ecosistema-card-title">Capacitación en Banca para el Desarrollo</h3>
+                        <p class="ecosistema-card-desc">Capacita gestores de crédito con MIPYMES</p>
+                        <span class="ecosistema-card-btn">Ver más →</span>
+                    </div>
+                </a>
+
+                <a href="https://observatoriotecedu.uned.ac.cr/laboratorio-fabricacion-fab-lab-ka-trare/" target="_blank" class="ecosistema-card">
+                    <img src="Vinculos/FABLAB.png" alt="Laboratorio de Fabricación (Fab Lab Ka Träre)" class="ecosistema-card-img">
+                    <div class="ecosistema-card-body">
+                        <h3 class="ecosistema-card-title">Laboratorio de Fabricación (Fab Lab Ka Träre)</h3>
+                        <p class="ecosistema-card-desc">Acceso a tecnologías abiertas para estudiantes y funcionarios</p>
+                        <span class="ecosistema-card-btn">Ver más →</span>
+                    </div>
+                </a>
+
+                <a href="https://www.facebook.com/emprendeguanacasteuned/" target="_blank" class="ecosistema-card">
+                    <img src="Vinculos/EmprendeGuanacaste.png" alt="Emprende Guanacaste" class="ecosistema-card-img">
+                    <div class="ecosistema-card-body">
+                        <h3 class="ecosistema-card-title">Emprende Guanacaste</h3>
+                        <p class="ecosistema-card-desc">Formación para emprendedores de los 11 cantones de Guanacaste</p>
+                        <span class="ecosistema-card-btn">Ver más →</span>
+                    </div>
+                </a>
+
+                <a href="https://www.facebook.com/p/Programa-EMPRENDE-RuralUNED-100069714437449/" target="_blank" class="ecosistema-card">
+                    <img src="Vinculos/EmprendeRural.png" alt="Programa EMPRENDE-Rural" class="ecosistema-card-img">
+                    <div class="ecosistema-card-body">
+                        <h3 class="ecosistema-card-title">Programa EMPRENDE-Rural</h3>
+                        <p class="ecosistema-card-desc">Promueve y asesora MIPYME rural en zonas rurales</p>
+                        <span class="ecosistema-card-btn">Ver más →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Normativa Section -->
     <section class="normativa-section">
         <div class="normativa-content">
@@ -1266,6 +1430,7 @@
                 <p>Universidad Estatal a Distancia</p>
                 <p style="margin-top: 0.5rem; color: rgba(255,255,255,0.6); font-size: 0.85rem;">Institución de educación superior pública de Costa Rica</p>
                 <p style="margin-top: 0.5rem;"><a href="https://uned.ac.cr" target="_blank">uned.ac.cr</a></p>
+                <p style="margin-top: 0.25rem;"><a href="https://investiga.uned.ac.cr/" target="_blank">Vicerrectoría de Investigación</a></p>
             </div>
 
             <div class="footer-section">
@@ -1286,7 +1451,7 @@
             <div class="footer-section">
                 <h3>Contacto</h3>
                 <ul>
-                    <li>observatorio@uned.ac.cr</li>
+                    <li>omipymes@uned.ac.cr</li>
                     <li>+506 2527-2000</li>
                     <li><a href="https://omipyme.uned.ac.cr" target="_blank">omipyme.uned.ac.cr</a></li>
                 </ul>
@@ -1294,7 +1459,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2024 - 2025 Universidad Estatal a Distancia (UNED) - Todos los derechos reservados</p>
+            <p>&copy; 2026 Universidad Estatal a Distancia (UNED) - Todos los derechos reservados</p>
         </div>
     </footer>
 
@@ -1321,7 +1486,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.pilar-card, .producto-card, .informe-card').forEach(el => {
+        document.querySelectorAll('.pilar-card, .producto-card, .informe-card, .ecosistema-card').forEach(el => {
             observer.observe(el);
         });
 
