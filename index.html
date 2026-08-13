@@ -1005,6 +1005,39 @@
             }
         }
 
+        /* Contacto Section */
+        .contacto-section {
+            background: var(--color-gray-50);
+            padding: 5rem 2rem;
+        }
+
+        .contacto-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contacto-form-wrapper {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--color-gray-200);
+            margin-top: 1.5rem;
+        }
+
+        .contacto-form-wrapper iframe {
+            display: block;
+            width: 100%;
+            min-height: 600px;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .contacto-form-wrapper iframe {
+                min-height: 500px;
+            }
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -1599,6 +1632,21 @@
         </div>
     </section>
 
+    <!-- Contacto Section -->
+    <section class="contacto-section" id="contacto">
+        <div class="contacto-content">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">Escríbanos sus consultas, sugerencias o solicitudes de información a través del siguiente formulario</p>
+            <div class="contacto-form-wrapper">
+                <iframe
+                    src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=rfAkTHVHKkS06JseUdfVZsKedOQfHA5Fvodqf-tAa9RUMUtEUkhZQ0tXNTNPSklaTjJaMEpFQ0pGTC4u&embed=true"
+                    title="Formulario de contacto OMiPYME"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
@@ -1616,7 +1664,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer" id="contacto">
+    <footer class="footer">
         <div class="footer-logos">
             <div class="footer-logos-inner">
                 <img src="logos/logo uned blanco .png" alt="UNED - Universidad Estatal a Distancia" class="footer-logo-img">
