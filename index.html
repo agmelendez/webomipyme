@@ -676,6 +676,81 @@
             }
         }
 
+        /* Carrusel de PDFs */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            padding: 0 3.5rem;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        .carousel-track .producto-card {
+            min-width: 320px;
+            flex-shrink: 0;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--color-primary);
+            background: white;
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .carousel-btn:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .carousel-btn-prev { left: 0; }
+        .carousel-btn-next { right: 0; }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: none;
+            background: var(--color-gray-100);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background: var(--color-primary);
+            transform: scale(1.3);
+        }
+
         /* Responsive para Productos */
         @media (max-width: 768px) {
             .productos-grid {
@@ -691,6 +766,20 @@
 
             .producto-card {
                 padding: 1.5rem;
+            }
+
+            .carousel-container {
+                padding: 0 2.5rem;
+            }
+
+            .carousel-track .producto-card {
+                min-width: 280px;
+            }
+
+            .carousel-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -728,8 +817,8 @@
                     <span class="stat-label">Tecnologías Core</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">∞</span>
-                    <span class="stat-label">Datos MIPYME</span>
+                    <span class="stat-number">25</span>
+                    <span class="stat-label">Publicaciones PDF</span>
                 </div>
             </div>
         </div>
@@ -956,140 +1045,216 @@
                 </div>
             </div>
 
-            <!-- Informes y Publicaciones -->
+            <!-- Informes y Publicaciones - Carrusel -->
             <div class="productos-categoria">
                 <h3 class="categoria-title">
                     <span class="categoria-icon">📄</span>
                     Informes y Publicaciones
                 </h3>
-                <div class="productos-grid">
-                    <a href="Informes/Informe17_Evolucion-del-Tejido-Empresarial-de-Costa-Rica-2022-2024-2.pdf" target="_blank" class="producto-card producto-destacado">
-                        <div class="producto-icon">📊</div>
-                        <h4 class="producto-title">Evolución del Tejido Empresarial de Costa Rica 2022-2024</h4>
-                        <p class="producto-description">Análisis de la evolución y dinámica del tejido empresarial costarricense en el período 2022-2024.</p>
-                        <span class="producto-badge">PDF</span>
-                        <span class="producto-badge-new">Nuevo</span>
-                    </a>
+                <div class="carousel-container" id="informes-carousel">
+                    <button class="carousel-btn carousel-btn-prev" aria-label="Anterior" data-carousel="informes">&#8249;</button>
+                    <div class="carousel-track" id="informes-track">
+                        <a href="Informes/Informe17_Evolucion-del-Tejido-Empresarial-de-Costa-Rica-2022-2024-2.pdf" target="_blank" class="producto-card producto-destacado">
+                            <div class="producto-icon">📊</div>
+                            <h4 class="producto-title">Evolución del Tejido Empresarial de Costa Rica 2022-2024</h4>
+                            <p class="producto-description">Análisis de la evolución y dinámica del tejido empresarial costarricense en el período 2022-2024.</p>
+                            <span class="producto-badge">PDF</span>
+                            <span class="producto-badge-new">Nuevo</span>
+                        </a>
 
-                    <a href="Informes/Informe16_GEM_Costa_Rica_2014_2025.pdf" target="_blank" class="producto-card producto-destacado">
-                        <div class="producto-icon">🌍</div>
-                        <h4 class="producto-title">GEM Costa Rica 2014-2025</h4>
-                        <p class="producto-description">Global Entrepreneurship Monitor (GEM): análisis del emprendimiento en Costa Rica durante el período 2014-2025.</p>
-                        <span class="producto-badge">PDF</span>
-                        <span class="producto-badge-new">Nuevo</span>
-                    </a>
+                        <a href="Informes/Informe16_GEM_Costa_Rica_2014_2025.pdf" target="_blank" class="producto-card producto-destacado">
+                            <div class="producto-icon">🌍</div>
+                            <h4 class="producto-title">GEM Costa Rica 2014-2025</h4>
+                            <p class="producto-description">Global Entrepreneurship Monitor (GEM): análisis del emprendimiento en Costa Rica durante el período 2014-2025.</p>
+                            <span class="producto-badge">PDF</span>
+                            <span class="producto-badge-new">Nuevo</span>
+                        </a>
 
-                    <a href="Informes/Informe15_lo-atractivo-esta-en-la forma-cr-es.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">🎨</div>
-                        <h4 class="producto-title">Lo Atractivo Está en la Forma</h4>
-                        <p class="producto-description">Estudio sobre diseño y atractivo empresarial en Costa Rica.</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Tendencias REVEC-BCCR-UJ OMIPYMEs 2026.pdf" target="_blank" class="producto-card producto-destacado">
+                            <div class="producto-icon">📈</div>
+                            <h4 class="producto-title">Tendencias REVEC-BCCR-UJ OMiPYMES 2026</h4>
+                            <p class="producto-description">Tendencias económicas y empresariales REVEC-BCCR-UJ para el sector OMiPYMES.</p>
+                            <span class="producto-badge">PDF</span>
+                            <span class="producto-badge-new">Nuevo</span>
+                        </a>
 
-                    <a href="Informes/Informe14_inventar-el-futuro-cr-es.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">🚀</div>
-                        <h4 class="producto-title">Inventar el Futuro</h4>
-                        <p class="producto-description">Innovación y prospectiva empresarial en Costa Rica.</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe15_lo-atractivo-esta-en-la forma-cr-es.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">🎨</div>
+                            <h4 class="producto-title">Lo Atractivo Está en la Forma</h4>
+                            <p class="producto-description">Estudio sobre diseño y atractivo empresarial en Costa Rica.</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Informe13_expresion-creativa-cr-es.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">💡</div>
-                        <h4 class="producto-title">Expresión Creativa</h4>
-                        <p class="producto-description">Economía creativa y expresión empresarial en Costa Rica.</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe14_inventar-el-futuro-cr-es.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">🚀</div>
+                            <h4 class="producto-title">Inventar el Futuro</h4>
+                            <p class="producto-description">Innovación y prospectiva empresarial en Costa Rica.</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Informe12_el-secreto-esta-en-la-marca-cr-es.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">🏷️</div>
-                        <h4 class="producto-title">El Secreto Está en la Marca</h4>
-                        <p class="producto-description">Estudio sobre branding y marca empresarial en Costa Rica.</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe13_expresion-creativa-cr-es.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">💡</div>
+                            <h4 class="producto-title">Expresión Creativa</h4>
+                            <p class="producto-description">Economía creativa y expresión empresarial en Costa Rica.</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Informe11_DIFERENCIAS POR GÉNERO EN EL EMPRENDIMIENTO EMPRESARIAL COSTARRICENSE.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">⚖️</div>
-                        <h4 class="producto-title">Diferencias por Género en el Emprendimiento Empresarial</h4>
-                        <p class="producto-description">Análisis de las diferencias de género en el emprendimiento empresarial costarricense.</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe12_el-secreto-esta-en-la-marca-cr-es.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">🏷️</div>
+                            <h4 class="producto-title">El Secreto Está en la Marca</h4>
+                            <p class="producto-description">Estudio sobre branding y marca empresarial en Costa Rica.</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Informe10_CONDICIONES ACTUALES DEL FINANCIAMIENTO DE LAS PYMES COSTARRICENSES.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">💰</div>
-                        <h4 class="producto-title">Condiciones Actuales del Financiamiento de las PYMES</h4>
-                        <p class="producto-description">Estudio sobre las condiciones de financiamiento de las PYMES costarricenses.</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe11_DIFERENCIAS POR GÉNERO EN EL EMPRENDIMIENTO EMPRESARIAL COSTARRICENSE.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">⚖️</div>
+                            <h4 class="producto-title">Diferencias por Género en el Emprendimiento Empresarial</h4>
+                            <p class="producto-description">Análisis de las diferencias de género en el emprendimiento empresarial costarricense.</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Informe9_AnalisisCluesterparaPymes.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">🔗</div>
-                        <h4 class="producto-title">Análisis de Clúster para PYMES</h4>
-                        <p class="producto-description">Análisis de agrupamientos empresariales y clústeres para el sector PYME.</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe10_CONDICIONES ACTUALES DEL FINANCIAMIENTO DE LAS PYMES COSTARRICENSES.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">💰</div>
+                            <h4 class="producto-title">Condiciones Actuales del Financiamiento de las PYMES</h4>
+                            <p class="producto-description">Estudio sobre las condiciones de financiamiento de las PYMES costarricenses.</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Informe8_Patentes_Omipymes 2018-gis-18-9-2018.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">📋</div>
-                        <h4 class="producto-title">Patentes OMiPYMES 2018</h4>
-                        <p class="producto-description">Estudio georreferenciado de patentes comerciales del sector MIPYME.</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe9_AnalisisCluesterparaPymes.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">🔗</div>
+                            <h4 class="producto-title">Análisis de Clúster para PYMES</h4>
+                            <p class="producto-description">Análisis de agrupamientos empresariales y clústeres para el sector PYME.</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Informe7_Leon_G_Efectos_pandemia_COVID_19_Mipymes_Costa Rica_2020.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">🦠</div>
-                        <h4 class="producto-title">Efectos de la Pandemia COVID-19 en MiPYMES</h4>
-                        <p class="producto-description">Análisis de los efectos de la pandemia COVID-19 en las MiPYMES de Costa Rica (2020).</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe8_Patentes_Omipymes 2018-gis-18-9-2018.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">📋</div>
+                            <h4 class="producto-title">Patentes OMiPYMES 2018</h4>
+                            <p class="producto-description">Estudio georreferenciado de patentes comerciales del sector MIPYME.</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Informe6_Impacto_económico por Covid19.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">📉</div>
-                        <h4 class="producto-title">Impacto Económico por COVID-19</h4>
-                        <p class="producto-description">Estudio del impacto económico generado por la crisis del COVID-19 en el sector empresarial.</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe7_Leon_G_Efectos_pandemia_COVID_19_Mipymes_Costa Rica_2020.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">🦠</div>
+                            <h4 class="producto-title">Efectos de la Pandemia COVID-19 en MiPYMES</h4>
+                            <p class="producto-description">Análisis de los efectos de la pandemia COVID-19 en las MiPYMES de Costa Rica (2020).</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Informe5_Brenes_L_Emprendimiento_empresarial_cantonal_CR_pandemia_COVID_19_IEN_2021.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">🏘️</div>
-                        <h4 class="producto-title">Emprendimiento Empresarial Cantonal y COVID-19</h4>
-                        <p class="producto-description">Emprendimiento empresarial cantonal en Costa Rica durante la pandemia COVID-19 (IEN 2021).</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe6_Impacto_económico por Covid19.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">📉</div>
+                            <h4 class="producto-title">Impacto Económico por COVID-19</h4>
+                            <p class="producto-description">Estudio del impacto económico generado por la crisis del COVID-19 en el sector empresarial.</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Informe4_LosRetos de la democracia econommica cantonal2014-2014.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">🏛️</div>
-                        <h4 class="producto-title">Los Retos de la Democracia Económica Cantonal</h4>
-                        <p class="producto-description">Análisis de los retos para la democracia económica a nivel cantonal (2014).</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe5_Brenes_L_Emprendimiento_empresarial_cantonal_CR_pandemia_COVID_19_IEN_2021.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">🏘️</div>
+                            <h4 class="producto-title">Emprendimiento Empresarial Cantonal y COVID-19</h4>
+                            <p class="producto-description">Emprendimiento empresarial cantonal en Costa Rica durante la pandemia COVID-19 (IEN 2021).</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Informe3_Los retos para la productividad empresarial en los cantones de Costa Rica.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">📈</div>
-                        <h4 class="producto-title">Retos para la Productividad Empresarial Cantonal</h4>
-                        <p class="producto-description">Los retos para la productividad empresarial en los cantones de Costa Rica.</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe4_LosRetos de la democracia econommica cantonal2014-2014.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">🏛️</div>
+                            <h4 class="producto-title">Los Retos de la Democracia Económica Cantonal</h4>
+                            <p class="producto-description">Análisis de los retos para la democracia económica a nivel cantonal (2014).</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Informe2_La importancia del sector municipal en el ecosistema de negocios de las mipyme y su relación con la competitividad.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">🏢</div>
-                        <h4 class="producto-title">Sector Municipal y Ecosistema de Negocios MIPYME</h4>
-                        <p class="producto-description">La importancia del sector municipal en el ecosistema de negocios de las MIPYME y su relación con la competitividad.</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe3_Los retos para la productividad empresarial en los cantones de Costa Rica.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">📈</div>
+                            <h4 class="producto-title">Retos para la Productividad Empresarial Cantonal</h4>
+                            <p class="producto-description">Los retos para la productividad empresarial en los cantones de Costa Rica.</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Informe1_Hacia el crecimiento inclusivo_2021.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">🌱</div>
-                        <h4 class="producto-title">Hacia el Crecimiento Inclusivo</h4>
-                        <p class="producto-description">Estudio sobre estrategias para el crecimiento inclusivo del sector empresarial (2021).</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe2_La importancia del sector municipal en el ecosistema de negocios de las mipyme y su relación con la competitividad.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">🏢</div>
+                            <h4 class="producto-title">Sector Municipal y Ecosistema de Negocios MIPYME</h4>
+                            <p class="producto-description">La importancia del sector municipal en el ecosistema de negocios de las MIPYME y su relación con la competitividad.</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
 
-                    <a href="Informes/Tendencias REVEC-BCCR-UJ OMIPYMEs 2026.pdf" target="_blank" class="producto-card">
-                        <div class="producto-icon">📊</div>
-                        <h4 class="producto-title">Tendencias REVEC-BCCR-UJ OMiPYMES 2026</h4>
-                        <p class="producto-description">Tendencias económicas y empresariales REVEC-BCCR-UJ para el sector OMiPYMES.</p>
-                        <span class="producto-badge">PDF</span>
-                    </a>
+                        <a href="Informes/Informe1_Hacia el crecimiento inclusivo_2021.pdf" target="_blank" class="producto-card">
+                            <div class="producto-icon">🌱</div>
+                            <h4 class="producto-title">Hacia el Crecimiento Inclusivo</h4>
+                            <p class="producto-description">Estudio sobre estrategias para el crecimiento inclusivo del sector empresarial (2021).</p>
+                            <span class="producto-badge">PDF</span>
+                        </a>
+                    </div>
+                    <button class="carousel-btn carousel-btn-next" aria-label="Siguiente" data-carousel="informes">&#8250;</button>
+                    <div class="carousel-dots" id="informes-dots"></div>
+                </div>
+            </div>
+
+            <!-- Confianza del Consumidor - Carrusel -->
+            <div class="productos-categoria">
+                <h3 class="categoria-title">
+                    <span class="categoria-icon">📊</span>
+                    Confianza del Consumidor por Provincia
+                </h3>
+                <div class="carousel-container" id="confianza-carousel">
+                    <button class="carousel-btn carousel-btn-prev" aria-label="Anterior" data-carousel="confianza">&#8249;</button>
+                    <div class="carousel-track" id="confianza-track">
+                        <a href="confianza_consumidor/San José final.pdf" target="_blank" class="producto-card producto-destacado">
+                            <div class="producto-icon">🏙️</div>
+                            <h4 class="producto-title">San José</h4>
+                            <p class="producto-description">Índice de Confianza del Consumidor para la provincia de San José.</p>
+                            <span class="producto-badge">PDF</span>
+                            <span class="producto-badge-new">Nuevo</span>
+                        </a>
+
+                        <a href="confianza_consumidor/Alajuela final.pdf" target="_blank" class="producto-card producto-destacado">
+                            <div class="producto-icon">🌾</div>
+                            <h4 class="producto-title">Alajuela</h4>
+                            <p class="producto-description">Índice de Confianza del Consumidor para la provincia de Alajuela.</p>
+                            <span class="producto-badge">PDF</span>
+                            <span class="producto-badge-new">Nuevo</span>
+                        </a>
+
+                        <a href="confianza_consumidor/Cartago final.pdf" target="_blank" class="producto-card producto-destacado">
+                            <div class="producto-icon">⛪</div>
+                            <h4 class="producto-title">Cartago</h4>
+                            <p class="producto-description">Índice de Confianza del Consumidor para la provincia de Cartago.</p>
+                            <span class="producto-badge">PDF</span>
+                            <span class="producto-badge-new">Nuevo</span>
+                        </a>
+
+                        <a href="confianza_consumidor/Heredia final.pdf" target="_blank" class="producto-card producto-destacado">
+                            <div class="producto-icon">🌸</div>
+                            <h4 class="producto-title">Heredia</h4>
+                            <p class="producto-description">Índice de Confianza del Consumidor para la provincia de Heredia.</p>
+                            <span class="producto-badge">PDF</span>
+                            <span class="producto-badge-new">Nuevo</span>
+                        </a>
+
+                        <a href="confianza_consumidor/Guanacaste final.pdf" target="_blank" class="producto-card producto-destacado">
+                            <div class="producto-icon">🌅</div>
+                            <h4 class="producto-title">Guanacaste</h4>
+                            <p class="producto-description">Índice de Confianza del Consumidor para la provincia de Guanacaste.</p>
+                            <span class="producto-badge">PDF</span>
+                            <span class="producto-badge-new">Nuevo</span>
+                        </a>
+
+                        <a href="confianza_consumidor/Puntarenas final.pdf" target="_blank" class="producto-card producto-destacado">
+                            <div class="producto-icon">🏖️</div>
+                            <h4 class="producto-title">Puntarenas</h4>
+                            <p class="producto-description">Índice de Confianza del Consumidor para la provincia de Puntarenas.</p>
+                            <span class="producto-badge">PDF</span>
+                            <span class="producto-badge-new">Nuevo</span>
+                        </a>
+
+                        <a href="confianza_consumidor/Limón final.pdf" target="_blank" class="producto-card producto-destacado">
+                            <div class="producto-icon">🌴</div>
+                            <h4 class="producto-title">Limón</h4>
+                            <p class="producto-description">Índice de Confianza del Consumidor para la provincia de Limón.</p>
+                            <span class="producto-badge">PDF</span>
+                            <span class="producto-badge-new">Nuevo</span>
+                        </a>
+                    </div>
+                    <button class="carousel-btn carousel-btn-next" aria-label="Siguiente" data-carousel="confianza">&#8250;</button>
+                    <div class="carousel-dots" id="confianza-dots"></div>
                 </div>
             </div>
         </div>
@@ -1320,6 +1485,141 @@ DATABASE_URL=postgresql://user:pass@localhost/omipyme</div>
                 hero.style.transform = `translateY(${scrolled * 0.5}px)`;
             }
         });
+
+        // Carrusel de PDFs
+        function initCarousel(trackId, dotsId) {
+            const track = document.getElementById(trackId);
+            const dotsContainer = document.getElementById(dotsId);
+            const container = track.parentElement;
+            const prevBtn = container.querySelector('.carousel-btn-prev');
+            const nextBtn = container.querySelector('.carousel-btn-next');
+            const cards = track.querySelectorAll('.producto-card');
+
+            if (!cards.length) return;
+
+            let currentIndex = 0;
+            let visibleCards = 3;
+            let autoPlayTimer = null;
+
+            function getVisibleCards() {
+                const w = window.innerWidth;
+                if (w < 640) return 1;
+                if (w < 1024) return 2;
+                return 3;
+            }
+
+            function getMaxIndex() {
+                return Math.max(0, cards.length - visibleCards);
+            }
+
+            function updateCarousel() {
+                visibleCards = getVisibleCards();
+                const maxIdx = getMaxIndex();
+                if (currentIndex > maxIdx) currentIndex = maxIdx;
+
+                const card = cards[0];
+                const gap = 24;
+                const cardWidth = card.offsetWidth + gap;
+                const offset = currentIndex * cardWidth;
+                track.style.transform = 'translateX(-' + offset + 'px)';
+
+                if (prevBtn) prevBtn.disabled = currentIndex === 0;
+                if (nextBtn) nextBtn.disabled = currentIndex >= maxIdx;
+
+                updateDots();
+            }
+
+            function createDots() {
+                dotsContainer.innerHTML = '';
+                const totalPages = getMaxIndex() + 1;
+                for (let i = 0; i < totalPages; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                    dot.setAttribute('aria-label', 'Ir a página ' + (i + 1));
+                    dot.addEventListener('click', function() {
+                        currentIndex = i;
+                        updateCarousel();
+                        resetAutoPlay();
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function updateDots() {
+                const dots = dotsContainer.querySelectorAll('.carousel-dot');
+                dots.forEach(function(dot, i) {
+                    dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+                });
+            }
+
+            prevBtn.addEventListener('click', function() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                    resetAutoPlay();
+                }
+            });
+
+            nextBtn.addEventListener('click', function() {
+                if (currentIndex < getMaxIndex()) {
+                    currentIndex++;
+                    updateCarousel();
+                    resetAutoPlay();
+                }
+            });
+
+            function autoPlay() {
+                autoPlayTimer = setInterval(function() {
+                    if (currentIndex < getMaxIndex()) {
+                        currentIndex++;
+                    } else {
+                        currentIndex = 0;
+                    }
+                    updateCarousel();
+                }, 5000);
+            }
+
+            function resetAutoPlay() {
+                clearInterval(autoPlayTimer);
+                autoPlay();
+            }
+
+            // Touch/swipe support
+            let startX = 0;
+            let isDragging = false;
+
+            track.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            }, { passive: true });
+
+            track.addEventListener('touchend', function(e) {
+                if (!isDragging) return;
+                isDragging = false;
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0 && currentIndex < getMaxIndex()) {
+                        currentIndex++;
+                    } else if (diff < 0 && currentIndex > 0) {
+                        currentIndex--;
+                    }
+                    updateCarousel();
+                    resetAutoPlay();
+                }
+            }, { passive: true });
+
+            window.addEventListener('resize', function() {
+                createDots();
+                updateCarousel();
+            });
+
+            createDots();
+            updateCarousel();
+            autoPlay();
+        }
+
+        initCarousel('informes-track', 'informes-dots');
+        initCarousel('confianza-track', 'confianza-dots');
     </script>
 </body>
 </html>
